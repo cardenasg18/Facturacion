@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facturación.Common", "Facturación.Common\Facturación.Common.csproj", "{A132361C-AF6E-4CAD-8154-3F9B0714A72A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facturacion.Web", "Facturacion.Web\Facturacion.Web.csproj", "{F7F3187F-8BFB-426D-ACD5-A49BC8D1A360}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A132361C-AF6E-4CAD-8154-3F9B0714A72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A132361C-AF6E-4CAD-8154-3F9B0714A72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A132361C-AF6E-4CAD-8154-3F9B0714A72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A132361C-AF6E-4CAD-8154-3F9B0714A72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F3187F-8BFB-426D-ACD5-A49BC8D1A360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F3187F-8BFB-426D-ACD5-A49BC8D1A360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F3187F-8BFB-426D-ACD5-A49BC8D1A360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F3187F-8BFB-426D-ACD5-A49BC8D1A360}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03BDC317-8A66-48C6-B30D-8D5ED428A5E0}
+	EndGlobalSection
+EndGlobal
