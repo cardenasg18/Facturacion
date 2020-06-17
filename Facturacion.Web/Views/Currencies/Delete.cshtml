@@ -17,6 +17,12 @@
         <dd>
             @Html.DisplayFor(model => model.CurrencyName)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Exchange)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exchange.ExchangeId)
+        </dd>
     </dl>
     
     <form asp-action="Delete">

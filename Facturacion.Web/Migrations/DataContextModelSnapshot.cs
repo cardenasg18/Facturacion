@@ -128,7 +128,11 @@ namespace Facturacion.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
+                    b.Property<int>("ExchangeId");
+
                     b.HasKey("CurrencyId");
+
+                    b.HasIndex("ExchangeId");
 
                     b.ToTable("Currencies");
                 });
@@ -147,7 +151,8 @@ namespace Facturacion.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(40);
 
-                    b.Property<int>("Document")
+                    b.Property<string>("Document")
+                        .IsRequired()
                         .HasMaxLength(20);
 
                     b.Property<int>("DocumentTypeId");
@@ -238,6 +243,19 @@ namespace Facturacion.Web.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("Facturacion.Web.Models.Exchange", b =>
+                {
+                    b.Property<int>("ExchangeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("Rate");
+
+                    b.HasKey("ExchangeId");
+
+                    b.ToTable("Exchanges");
+                });
+
             modelBuilder.Entity("Facturacion.Web.Models.Item", b =>
                 {
                     b.Property<int>("ItemId")
@@ -325,6 +343,21 @@ namespace Facturacion.Web.Migrations
                     b.ToTable("Neighborhoods");
                 });
 
+            modelBuilder.Entity("Facturacion.Web.Models.Payment", b =>
+                {
+                    b.Property<int>("PaymentId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Pway")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.HasKey("PaymentId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("Facturacion.Web.Models.Position", b =>
                 {
                     b.Property<int>("PositionId")
@@ -358,6 +391,21 @@ namespace Facturacion.Web.Migrations
                     b.HasKey("SellerId");
 
                     b.ToTable("Sellers");
+                });
+
+            modelBuilder.Entity("Facturacion.Web.Models.Shipping", b =>
+                {
+                    b.Property<int>("ShippingId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ShippWay")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.HasKey("ShippingId");
+
+                    b.ToTable("Shippings");
                 });
 
             modelBuilder.Entity("Facturacion.Web.Models.State", b =>
@@ -477,6 +525,14 @@ namespace Facturacion.Web.Migrations
                     b.HasOne("Facturacion.Web.Models.Seller", "Seller")
                         .WithMany("Companies")
                         .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Facturacion.Web.Models.Currency", b =>
+                {
+                    b.HasOne("Facturacion.Web.Models.Exchange", "Exchange")
+                        .WithMany("Currencies")
+                        .HasForeignKey("ExchangeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

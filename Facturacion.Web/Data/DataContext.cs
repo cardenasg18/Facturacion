@@ -32,6 +32,10 @@ namespace Facturacion.Web.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<SupplierType> SupplierTypes { get; set; }
         public DbSet<Unit> Units { get; set; }
+        public DbSet<Exchange> Exchanges { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Shipping> Shippings { get; set; }
+
 
 
     }

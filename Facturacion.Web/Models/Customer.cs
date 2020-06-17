@@ -14,7 +14,7 @@ namespace Facturacion.Web.Models
 
         [Required(ErrorMessage = "Este campo es obligatorio.")]
         [MaxLength(40, ErrorMessage = "Límite de caracteres excedido.")]
-        [Display(Name = "Nombre empleado")]
+        [Display(Name = "Nombre")]
         public string CustomerName { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio.")]
@@ -31,7 +31,7 @@ namespace Facturacion.Web.Models
         [Required(ErrorMessage = "Este campo es obligatorio.")]
         [MaxLength(20, ErrorMessage = "Límite de caracteres excedido.")]
         [Display(Name = "Documento")]
-        public int Document { get; set; }
+        public string Document { get; set; }
 
         [Display(Name = "Teléfono")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Número invalido")]

@@ -22,7 +22,8 @@ namespace Facturacion.Web.Controllers
         // GET: Currencies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Currencies.ToListAsync());
+            var dataContext = _context.Currencies.Include(c => c.Exchange);
+            return View(await dataContext.ToListAsync());
         }
 
         // GET: Currencies/Details/5
@@ -34,6 +35,7 @@ namespace Facturacion.Web.Controllers
             }
 
             var currency = await _context.Currencies
+                .Include(c => c.Exchange)
                 .FirstOrDefaultAsync(m => m.CurrencyId == id);
             if (currency == null)
             {
@@ -46,6 +48,7 @@ namespace Facturacion.Web.Controllers
         // GET: Currencies/Create
         public IActionResult Create()
         {
+            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CurrencyId,CurrencyName")] Currency currency)
+        public async Task<IActionResult> Create([Bind("CurrencyId,CurrencyName,ExchangeId")] Currency currency)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace Facturacion.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId", currency.ExchangeId);
             return View(currency);
         }
 
@@ -78,6 +82,7 @@ namespace Facturacion.Web.Controllers
             {
                 return NotFound();
             }
+            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId", currency.ExchangeId);
             return View(currency);
         }
 
@@ -86,7 +91,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CurrencyId,CurrencyName")] Currency currency)
+        public async Task<IActionResult> Edit(int id, [Bind("CurrencyId,CurrencyName,ExchangeId")] Currency currency)
         {
             if (id != currency.CurrencyId)
             {
@@ -113,6 +118,7 @@ namespace Facturacion.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId", currency.ExchangeId);
             return View(currency);
         }
 
@@ -125,6 +131,7 @@ namespace Facturacion.Web.Controllers
             }
 
             var currency = await _context.Currencies
+                .Include(c => c.Exchange)
                 .FirstOrDefaultAsync(m => m.CurrencyId == id);
             if (currency == null)
             {
