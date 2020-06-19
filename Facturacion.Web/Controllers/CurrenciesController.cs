@@ -48,7 +48,7 @@ namespace Facturacion.Web.Controllers
         // GET: Currencies/Create
         public IActionResult Create()
         {
-            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId");
+            ViewData["ExchangeName"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeName");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Facturacion.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId", currency.ExchangeId);
+            ViewData["ExchangeName"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeName", currency.ExchangeId);
             return View(currency);
         }
 
@@ -82,7 +82,7 @@ namespace Facturacion.Web.Controllers
             {
                 return NotFound();
             }
-            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId", currency.ExchangeId);
+            ViewData["ExchangeName"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeName", currency.ExchangeId);
             return View(currency);
         }
 
@@ -118,7 +118,7 @@ namespace Facturacion.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ExchangeId"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeId", currency.ExchangeId);
+            ViewData["ExchangeName"] = new SelectList(_context.Exchanges, "ExchangeId", "ExchangeName", currency.ExchangeId);
             return View(currency);
         }
 

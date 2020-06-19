@@ -13,7 +13,7 @@ namespace Facturacion.Web.Models
 
         [Required(ErrorMessage ="Este campo es obligatorio.")]
         [Display(Name ="Tasa de cambio")]       
-        public float Rate { get; set; }
+        public decimal ExchangeName { get; set; }
 
         public ICollection<Currency> Currencies { get; set; }
     }

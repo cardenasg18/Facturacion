@@ -16,7 +16,8 @@
                 @Html.DisplayNameFor(model => model.CurrencyName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Exchange)
+                Tasa de cambio
+                @*@Html.DisplayNameFor(model => model.Exchange)*@
             </th>
             <th></th>
         </tr>
@@ -28,11 +29,11 @@
                 @Html.DisplayFor(modelItem => item.CurrencyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Exchange.ExchangeId)
+                @Html.DisplayFor(modelItem => item.Exchange.ExchangeName)
             </td>
             <td>
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.CurrencyId">Editar</a> |
-                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.CurrencyId">Detalle</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.CurrencyId">Detalles</a> |
                 <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CurrencyId">Eliminar</a>
             </td>
         </tr>

@@ -54,7 +54,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ExchangeId,Rate")] Exchange exchange)
+        public async Task<IActionResult> Create([Bind("ExchangeId,ExchangeName")] Exchange exchange)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ExchangeId,Rate")] Exchange exchange)
+        public async Task<IActionResult> Edit(int id, [Bind("ExchangeId,ExchangeName")] Exchange exchange)
         {
             if (id != exchange.ExchangeId)
             {
