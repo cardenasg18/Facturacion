@@ -31,9 +31,11 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <svg class="bi bi-cart4" width="1.7em" height="1.7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                    </svg>
                 </div>
-                <div class="sidebar-brand-text mx-3" >J & V security <sup></sup></div>
+                <div class="sidebar-brand-text mx-4">J & V security <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -42,9 +44,12 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Inicio </span>
-                   
+                    <svg class="bi bi-house-door-fill" width="1.3em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"></path>
+                        <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+                    </svg>
+                    <span>Inicio</span>
+
                 </a>
             </li>
 
@@ -58,37 +63,40 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                <a class="nav-link text-white collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
                     <span>Administrador</span>
-               </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Tablas:</h6>
 
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Items" asp-action="Index">Artículos</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Index">Clientes</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Clasifications" asp-action="Index">Clasificación artículo</a>                      
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Companies" asp-action="Index">Empresa</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Empleado</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Statuses" asp-action="Index">Estado</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Payments" asp-action="Index">Forma de pago</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Shippings" asp-action="Index">Forma de envío</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index">Municipio</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Brands" asp-action="Index">Marca</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Currencies" asp-action="Index">Moneda</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Suppliers" asp-action="Index">Suplidor</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Neighborhoods" asp-action="Index">Sector</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="SupplierTypes" asp-action="Index">Tipo suplidor</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="CustomerTypes" asp-action="Index">Tipo cliente</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="DocumentTypes" asp-action="Index">Tipo Documento</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Exchanges" asp-action="Index">Tasa de cambio</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Countries" asp-action="Index">País</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="States" asp-action="Index">Provincia</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Positions" asp-action="Index">Puesto</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Locations" asp-action="Index">Ubicación</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Units" asp-action="Index">Unidad medida</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Sellers" asp-action="Index">Vendedor</a>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-primary py-2 collapse-inner rounded">
+                        <h6 class="collapse-header text-white">Tablas:</h6>
+
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Items" asp-action="Index">Artículos</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Customers" asp-action="Index">Clientes</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Clasifications" asp-action="Index">Clasificación artículo</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Companies" asp-action="Index">Empresa</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Employees" asp-action="Index">Empleado</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Statuses" asp-action="Index">Estado</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Payments" asp-action="Index">Forma de pago</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Shippings" asp-action="Index">Forma de envío</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Cities" asp-action="Index">Municipio</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Brands" asp-action="Index">Marca</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Currencies" asp-action="Index">Moneda</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Suppliers" asp-action="Index">Suplidor</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Neighborhoods" asp-action="Index">Sector</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="SupplierTypes" asp-action="Index">Tipo suplidor</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="CustomerTypes" asp-action="Index">Tipo cliente</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="DocumentTypes" asp-action="Index">Tipo Documento</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Exchanges" asp-action="Index">Tasa de cambio</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Countries" asp-action="Index">País</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="States" asp-action="Index">Provincia</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Positions" asp-action="Index">Puesto</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Locations" asp-action="Index">Ubicación</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Units" asp-action="Index">Unidad medida</a>
+                        <a class="collapse-item text-black-40" asp-area="" asp-controller="Sellers" asp-action="Index">Vendedor</a>
 
 
                     </div>
@@ -98,12 +106,14 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                    <span>Facturas</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
+                    <div class="bg-primary py-2 collapse-inner rounded">
+                        <h6 class="collapse-header text-white">Facturación:</h6>
                         <a class="collapse-item" href="utilities-color.html">Colors</a>
                         <a class="collapse-item" href="utilities-border.html">Borders</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
@@ -123,17 +133,19 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                    <span>Usuario</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                    <div class="bg-primary py-2 collapse-inner rounded">
+                        <h6 class="collapse-header text-white">Login:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
                         <a class="collapse-item" href="register.html">Register</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
+                        <h6 class="collapse-header text-white">Otros:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
@@ -173,7 +185,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-primary topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -185,8 +197,11 @@
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn btn-success" type="button">
+                                    <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                    </svg>
                                 </button>
                             </div>
                         </div>
@@ -194,6 +209,21 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <aside id="cnss_widget-2" class="widget widget_cnss_widget">
+                            <ul id="" class="cnss-social-icon " style="text-align:center;">
+                                <li class="cn-fa-facebook" style="display:inline-block;">
+                                    <a class="" target="_blank" href="https://www.facebook.com" title="Facebook" style="">
+                                        <img src="https://www.ucsd.edu.do/wp-content/uploads/2020/06/facebook-icon.png" border="0" width="20" height="20" alt="Facebook" title="Facebook" style="margin:20px;">
+                                    </a>
+                                </li>
+                                <li class="cn-fa-twitter" style="display:inline-block;">
+                                    <a class="" target="_blank" href="https://twitter.com" title="Twitter" style=""><img src="https://www.ucsd.edu.do/wp-content/uploads/2020/06/twitter-icon.png" border="0" width="20" height="20" alt="Twitter" title="Twitter" style="margin:20px;"></a>
+                                </li>
+                                <li class="cn-fa-instagram" style="display:inline-block;"><a class="" target="_blank" href="https://www.instagram.com" title="Instagram" style=""><img src="https://www.ucsd.edu.do/wp-content/uploads/2020/06/instagram-icon.png" border="0" width="20" height="20" alt="Instagram" title="Instagram" style="margin:20px;"></a></li>
+                            </ul>
+                        </aside>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
@@ -218,7 +248,9 @@
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
+                                <svg class="bi bi-bell-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                                </svg>
                                 <!-- Counter - Alerts -->
                                 <span class="badge badge-danger badge-counter">3+</span>
                             </a>
@@ -267,7 +299,9 @@
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
+                                <svg class="bi bi-chat-square-dots-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm5 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                </svg>
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
@@ -360,7 +394,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-left justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800" style=" font-size: 3.75rem; >Bienvenidos</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i class="fas fa-download fa-sm text-white-50" ></i> Bienvenidos</a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Bienvenidos</a>
                     </div>
 
                     <!-- Content Row -->
@@ -387,6 +421,61 @@
             </div>
             <!-- End of Main Content -->
             <!-- Footer -->
+            <div class="row" style="display: block;">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-dark">CONTACTOS</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <ul>
+                                        <li>
+                                            <ion-icon name="call-outline"></ion-icon>
+                                            Secretaria
+                                            (809)-567-2534
+                                        </li>
+                                        <li>
+                                            <ion-icon name="mail-outline"></ion-icon>
+                                            mariavargas@gmail.com
+                                        </li>
+
+                                        <h2> </h2>
+                                        <li>
+                                            <ion-icon name="call-outline"></ion-icon>
+                                            Técnico
+                                            (829)-639-571
+                                        </li>
+
+                                        <li>
+                                            <ion-icon name="mail-outline"></ion-icon>
+                                            juanesteves@gmail.com
+                                        </li>
+                                        <h2> </h2>
+                                        <li>
+                                            <ion-icon name="call-outline"></ion-icon>
+                                            Encargado
+                                            (849)-597-4954
+                                        </li>
+                                        <li>
+                                            <ion-icon name="mail-outline"></ion-icon>
+                                            franciscoalberto@gmail.com
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                    <div class="copyright text-center my-auto">                                  
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -446,6 +535,7 @@
         <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script>*@
 
+        <script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
 </body>
 
 </html>
