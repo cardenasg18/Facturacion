@@ -4,11 +4,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Eliminar</h2>
 
-<h3>¿Seguro que desea eliminar esto?</h3>
+<h1>¿Seguro de que desea eliminar esto?</h1>
 <div>
-    <h4>Artículo</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -30,14 +28,13 @@
             @Html.DisplayFor(model => model.Comment)
         </dd>
         <dt>
-            Precio
-            @*@Html.DisplayNameFor(model => model.UnitPrice)*@
+            @Html.DisplayNameFor(model => model.UnitPrice)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.UnitPrice)
         </dd>
         <dt>
-            Clasificación
+            Categoría
             @*@Html.DisplayNameFor(model => model.Clasification)*@
         </dt>
         <dd>
@@ -58,7 +55,7 @@
             @Html.DisplayFor(model => model.Currency.CurrencyName)
         </dd>
         <dt>
-            Unidad de medida
+            Unidad
             @*@Html.DisplayNameFor(model => model.Unit)*@
         </dt>
         <dd>
@@ -71,11 +68,18 @@
         <dd>
             @Html.DisplayFor(model => model.Status.StatusOf)
         </dd>
+        <dt>
+            Suplidor
+            @*@Html.DisplayNameFor(model => model.Supplier)*@
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.SupplierName)
+        </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ItemId" />
         <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a class=" btn btn-dark" asp-action="Index">Regresar</a>
+        <a class="btn btn-dark" asp-action="Index">Regresar</a>
     </form>
 </div>

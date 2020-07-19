@@ -22,7 +22,7 @@ namespace Facturacion.Web.Controllers
         // GET: Items
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.Items.Include(i => i.Brand).Include(i => i.Clasification).Include(i => i.Currency).Include(i => i.Status).Include(i => i.Unit);
+            var dataContext = _context.Items.Include(i => i.Brand).Include(i => i.Clasification).Include(i => i.Currency).Include(i => i.Status).Include(i => i.Supplier).Include(i => i.Unit);
             return View(await dataContext.ToListAsync());
         }
 
@@ -39,6 +39,7 @@ namespace Facturacion.Web.Controllers
                 .Include(i => i.Clasification)
                 .Include(i => i.Currency)
                 .Include(i => i.Status)
+                .Include(i => i.Supplier)
                 .Include(i => i.Unit)
                 .FirstOrDefaultAsync(m => m.ItemId == id);
             if (item == null)
@@ -56,6 +57,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType");
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName");
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf");
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail");
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName");
             return View();
         }
@@ -65,7 +67,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ItemId,ItemName,UnitsInStock,Comment,UnitPrice,ClasificationId,BrandId,CurrencyId,UnitId,StatusId")] Item item)
+        public async Task<IActionResult> Create([Bind("ItemId,ItemName,UnitsInStock,Comment,UnitPrice,ClasificationId,BrandId,CurrencyId,UnitId,StatusId,SupplierId")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -77,6 +79,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType", item.ClasificationId);
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName", item.CurrencyId);
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", item.StatusId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail", item.SupplierId);
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName", item.UnitId);
             return View(item);
         }
@@ -98,6 +101,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType", item.ClasificationId);
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName", item.CurrencyId);
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", item.StatusId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail", item.SupplierId);
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName", item.UnitId);
             return View(item);
         }
@@ -107,7 +111,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ItemId,ItemName,UnitsInStock,Comment,UnitPrice,ClasificationId,BrandId,CurrencyId,UnitId,StatusId")] Item item)
+        public async Task<IActionResult> Edit(int id, [Bind("ItemId,ItemName,UnitsInStock,Comment,UnitPrice,ClasificationId,BrandId,CurrencyId,UnitId,StatusId,SupplierId")] Item item)
         {
             if (id != item.ItemId)
             {
@@ -138,6 +142,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType", item.ClasificationId);
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName", item.CurrencyId);
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", item.StatusId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail", item.SupplierId);
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName", item.UnitId);
             return View(item);
         }
@@ -155,6 +160,7 @@ namespace Facturacion.Web.Controllers
                 .Include(i => i.Clasification)
                 .Include(i => i.Currency)
                 .Include(i => i.Status)
+                .Include(i => i.Supplier)
                 .Include(i => i.Unit)
                 .FirstOrDefaultAsync(m => m.ItemId == id);
             if (item == null)

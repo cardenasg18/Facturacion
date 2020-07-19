@@ -12,7 +12,7 @@
     <title>J & V Secutrity System </title>
 
     <!-- Custom fonts for this template-->
-    <link href=" ~/sbAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    @*<link href=" ~/sbAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -29,7 +29,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <svg class="bi bi-cart4" width="1.7em" height="1.7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
@@ -42,16 +42,17 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <svg class="bi bi-house-door-fill" width="1.3em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"></path>
-                        <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
-                    </svg>
-                    <span>Inicio</span>
 
-                </a>
-            </li>
+
+            <div class="Fifk5">
+                <div class="" style="text-align:center;">
+                    <a href="/" tabindex="0">
+                        <svg aria-label="Inicio" class="_8-yf5 " fill="#262626" height="22" viewBox="0 0 48 48" width="22">
+                            <path d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -109,17 +110,14 @@
                     <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                     </svg>
-                    <span>Facturas</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-primary py-2 collapse-inner rounded">
-                        <h6 class="collapse-header text-white">Facturación:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
+                    <span>Orden de compra</span>
+               </a><div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                       <div class="bg-primary py-2 collapse-inner rounded">
+                           <h6 class="collapse-header">Ordenes:</h6>
+                           @*<a asp-area="" class="dropdown-item" asp-controller="Orders" asp-action="Index">Orden</a>*@
+                           <a class="collapse-item text-black-40" asp-area="" asp-controller="Orders" asp-action="Index">Ordenes</a>
+                       </div>
+                  </div>
             </li>
 
             <!-- Divider -->
@@ -145,28 +143,28 @@
                         <a class="collapse-item" href="register.html">Register</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
-                        <h6 class="collapse-header text-white">Otros:</h6>
+                        @*<h6 class="collapse-header text-white">Otros:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a>*@
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            @*<li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span>
                 </a>
-            </li>
+            </li>*@
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            @*<li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span>
                 </a>
-            </li>
+            </li>*@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -393,8 +391,8 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-left justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800" style=" font-size: 3.75rem; >Bienvenidos</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Bienvenidos</a>
+                        @*<h1 class="h3 mb-0 text-gray-800" style=" font-size: 3.75rem; >Bienvenidos</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Bienvenidos</a>*@
                     </div>
 
                     <!-- Content Row -->
@@ -421,64 +419,64 @@
             </div>
             <!-- End of Main Content -->
             <!-- Footer -->
-            <div class="row" style="display: block;">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-dark">CONTACTOS</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <ul>
-                                        <li>
-                                            <ion-icon name="call-outline"></ion-icon>
-                                            Secretaria
-                                            (809)-567-2534
-                                        </li>
-                                        <li>
-                                            <ion-icon name="mail-outline"></ion-icon>
-                                            mariavargas@gmail.com
-                                        </li>
+            @*<div class="row" style="display: block;">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">CONTACTOS</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <ul>
+                                            <li>
+                                                <ion-icon name="call-outline"></ion-icon>
+                                                Secretaria
+                                                (809)-567-2534
+                                            </li>
+                                            <li>
+                                                <ion-icon name="mail-outline"></ion-icon>
+                                                mariavargas@gmail.com
+                                            </li>
 
-                                        <h2> </h2>
-                                        <li>
-                                            <ion-icon name="call-outline"></ion-icon>
-                                            Técnico
-                                            (829)-639-571
-                                        </li>
+                                            <h2> </h2>
+                                            <li>
+                                                <ion-icon name="call-outline"></ion-icon>
+                                                Técnico
+                                                (829)-639-571
+                                            </li>
 
-                                        <li>
-                                            <ion-icon name="mail-outline"></ion-icon>
-                                            juanesteves@gmail.com
-                                        </li>
-                                        <h2> </h2>
-                                        <li>
-                                            <ion-icon name="call-outline"></ion-icon>
-                                            Encargado
-                                            (849)-597-4954
-                                        </li>
-                                        <li>
-                                            <ion-icon name="mail-outline"></ion-icon>
-                                            franciscoalberto@gmail.com
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <footer class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">                                  
+                                            <li>
+                                                <ion-icon name="mail-outline"></ion-icon>
+                                                juanesteves@gmail.com
+                                            </li>
+                                            <h2> </h2>
+                                            <li>
+                                                <ion-icon name="call-outline"></ion-icon>
+                                                Encargado
+                                                (849)-597-4954
+                                            </li>
+                                            <li>
+                                                <ion-icon name="mail-outline"></ion-icon>
+                                                franciscoalberto@gmail.com
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </footer>
+
+                                <footer class="sticky-footer bg-white">
+                                    <div class="container my-auto">
+                                        <div class="copyright text-center my-auto">
+                                        </div>
+                                    </div>
+                                </footer>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <footer class="sticky-footer bg-white">
+                </div>*@
+            <footer class="sticky-footer bg-primary">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+                    <div class="copyright text-center my-auto text-white">
                         <span>Copyright &copy; J & V security System 2020</span>
                     </div>
                 </div>
@@ -526,6 +524,7 @@
 
     <script src="~/sbAdmin/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="~/sbAdmin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     @RenderSection("Scripts", required: false)
 
     @*Page level plugins
@@ -535,7 +534,7 @@
         <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script>*@
 
-        <script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
+    @*<script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>*@
 </body>
 
 </html>

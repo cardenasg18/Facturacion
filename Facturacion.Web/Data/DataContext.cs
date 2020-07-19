@@ -35,6 +35,8 @@ namespace Facturacion.Web.Data
         public DbSet<Exchange> Exchanges { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Shipping> Shippings { get; set; }
+        public DbSet<Facturacion.Web.Models.Order> Order { get; set; }
+        public DbSet<Facturacion.Web.Models.OrderDetail> OrderDetail { get; set; }
 
 
 

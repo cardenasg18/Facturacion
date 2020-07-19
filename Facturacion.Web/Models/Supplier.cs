@@ -25,6 +25,7 @@ namespace Facturacion.Web.Models
         [Required(ErrorMessage = "Este campo es obligatorio.")]
         [Display(Name = "Teléfono")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Número invalido.")]
+        [RegularExpression("([0-9][0-9]*)", ErrorMessage = "Sólo debe Colocar Números")]
         public int Telephone { get; set; }
 
         [Required]
@@ -38,5 +39,7 @@ namespace Facturacion.Web.Models
         [ForeignKey("Type")]
         public int SupplierTypeId { get; set; }
         public SupplierType SupplierType { get; set; }
+
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

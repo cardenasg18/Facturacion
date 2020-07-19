@@ -60,5 +60,14 @@ namespace Facturacion.Web.Models
         [ForeignKey("StatusOf")]
         public int StatusId { get; set; }
         public Status Status { get; set; }
+
+        [Required]
+        [Display(Name = "Suplidor")]
+        [ForeignKey("SupplierName")]
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+
     }
 }

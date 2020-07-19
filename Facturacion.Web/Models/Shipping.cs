@@ -17,6 +17,6 @@ namespace Facturacion.Web.Models
         [MaxLength(30, ErrorMessage ="Límite de caracteres excedido.")]
         public string ShippWay { get; set; }
 
-
+        public ICollection<Order> Orders { get; set; }
     }
 }

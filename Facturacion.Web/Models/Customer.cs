@@ -35,6 +35,7 @@ namespace Facturacion.Web.Models
 
         [Display(Name = "Teléfono")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Número invalido")]
+        [RegularExpression("([0-9][0-9]*)", ErrorMessage = "Sólo debe Colocar Números")]
         public int Number { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio.")]
@@ -53,5 +54,8 @@ namespace Facturacion.Web.Models
         [ForeignKey("CountryName")]
         public int CountryId { get; set; }
         public Country Country { get; set; }
+
+        public string FullName => $"{CustomerName} {LastName}";
+        public ICollection<Order> Orders { get; set; }
     }
 }

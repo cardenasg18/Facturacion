@@ -9,9 +9,20 @@
     <Compile Remove="Migrations\20200615004724_Exchange.Designer.cs" />
     <Compile Remove="Migrations\20200617053611_errocliente.cs" />
     <Compile Remove="Migrations\20200617053611_errocliente.Designer.cs" />
+    <Compile Remove="Migrations\20200706031553_cambiomil.cs" />
+    <Compile Remove="Migrations\20200706031553_cambiomil.Designer.cs" />
+    <Compile Remove="Migrations\20200709011251_vEmergente.cs" />
+    <Compile Remove="Migrations\20200709011251_vEmergente.Designer.cs" />
+    <Compile Remove="Migrations\20200709015323_vEmergente.cs" />
+    <Compile Remove="Migrations\20200709015323_vEmergente.Designer.cs" />
+    <Compile Remove="Migrations\20200709020955_vEmergente.cs" />
+    <Compile Remove="Migrations\20200709020955_vEmergente.Designer.cs" />
+    <Compile Remove="Migrations\20200710023625_vEmergente2.cs" />
+    <Compile Remove="Migrations\20200710023625_vEmergente2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.6.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />

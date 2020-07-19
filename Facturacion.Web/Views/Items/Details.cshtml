@@ -7,7 +7,6 @@
 <h2>Detalles</h2>
 
 <div>
-    <h4>Artículo</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -35,7 +34,7 @@
             @Html.DisplayFor(model => model.UnitPrice)
         </dd>
         <dt>
-            Clasificación
+            Categoría
             @*@Html.DisplayNameFor(model => model.Clasification)*@
         </dt>
         <dd>
@@ -49,14 +48,14 @@
             @Html.DisplayFor(model => model.Brand.BrandName)
         </dd>
         <dt>
-            Moneda
+            Marca
             @*@Html.DisplayNameFor(model => model.Currency)*@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Currency.CurrencyName)
         </dd>
         <dt>
-            Unidad de medida
+            Unidad
             @*@Html.DisplayNameFor(model => model.Unit)*@
         </dt>
         <dd>
@@ -69,9 +68,16 @@
         <dd>
             @Html.DisplayFor(model => model.Status.StatusOf)
         </dd>
+        <dt>
+            Suplidor
+            @*@Html.DisplayNameFor(model => model.Supplier)*@
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.SupplierName)
+        </dd>
     </dl>
 </div>
 <div>
     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ItemId">Editar</a> |
-    <a class=" btn btn-dark" asp-action="Index">Regresar</a>
+    <a class="btn btn-dark" asp-action="Index">Regresar</a>
 </div>

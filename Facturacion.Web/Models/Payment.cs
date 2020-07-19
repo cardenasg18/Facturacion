@@ -16,5 +16,7 @@ namespace Facturacion.Web.Models
         [MaxLength(20, ErrorMessage ="Límite de caracteres excedido.")]
         public string Pway { get; set; }
 
+        public ICollection<Order> Orders { get; set; }
+
     }
 }

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Facturacion.Web.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Ordenes <a class="btn btn-success" asp-action="Create">Agregar</a> </h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Método de pago
+            </th>
+            <th>
+                Método de envío
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTime)
+            </th>
+            <th>
+                Observaciones
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalValue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FullName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment.Pway)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Shipping.ShippWay)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.comentario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalValue)
+            </td>
+
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.OrderId">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.OrderId">Detalles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.OrderId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

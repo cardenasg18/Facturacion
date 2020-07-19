@@ -1,0 +1,67 @@
+﻿@model Facturacion.Web.Models.Order
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h1>¿Seguro de que desea eliminar esto?</h1>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Forma de pago
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Payment.Pway)
+        </dd>
+        <dt>
+            Forma de envío
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shipping.ShippWay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.comentario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.comentario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubTotal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Valueimp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Valueimp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+        <dt>
+            Cliente
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OrderId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-dark" asp-action="Index">Regresar</a>
+    </form>
+</div>
