@@ -1,6 +1,6 @@
-﻿@model Facturacion.Web.Models.OrderDetail
+﻿@model Facturacion.Web.Models.PurchaseDetail
 
-<h2>Detalle de orden</h2>
+<h2>Detalle de factura</h2>
 <hr />
 <div class="row">
     <div class="col-md-12">
@@ -17,8 +17,8 @@
             </div>
             <div class="form-group">
                 <div class="form-group" style="display:none;">
-                    <label asp-for="OrderId" class="control-label"></label>
-                    <input asp-for="OrderId" class="form-control" value="@ViewData["id"].ToString()" />
+                    <label asp-for="PurchaseId" class="control-label"></label>
+                    <input asp-for="PurchaseId" class="form-control" value="@ViewData["id"].ToString()" />
                 </div>
             </div>
             <div class="form-group">

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Facturacion.Web.Data;
 using Facturacion.Web.Models;
 using Facturacion.Web.ViewModels;
+using Rotativa.AspNetCore;
 
 namespace Facturacion.Web.Controllers
 {
@@ -23,7 +24,7 @@ namespace Facturacion.Web.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.Order.Include(o => o.Customer).Include(o => o.Payment).Include(o => o.Shipping);
+            var dataContext = _context.Order.Include(o => o.Supplier).Include(o => o.Payment).Include(o => o.Shipping);
             return View(await dataContext.ToListAsync());
         }
 
@@ -36,7 +37,7 @@ namespace Facturacion.Web.Controllers
             }
 
             var order = await _context.Order
-                .Include(o => o.Customer)
+                .Include(o => o.Supplier)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -48,7 +49,7 @@ namespace Facturacion.Web.Controllers
             var orderdetail = new OrderDetail();
 
             orderview.Order = await _context.Order
-                .Include(o => o.Customer)
+                .Include(o => o.Supplier)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -61,12 +62,13 @@ namespace Facturacion.Web.Controllers
             ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "ItemName", orderdetail.ItemId);
 
             return View(orderview);
+
         }
 
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName");
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway");
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay");
             return View();
@@ -77,7 +79,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,CustomerId,PaymentId,ShippingId,OrderTime,comentario,SubTotal,Valueimp")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,SupplierId,PaymentId,ShippingId,OrderTime,comentario,SubTotal,Valueimp")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +87,7 @@ namespace Facturacion.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", order.CustomerId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", order.SupplierId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", order.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", order.ShippingId);
             return View(order);
@@ -104,7 +106,7 @@ namespace Facturacion.Web.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", order.CustomerId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", order.SupplierId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", order.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", order.ShippingId);
             return View(order);
@@ -115,7 +117,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,CustomerId,PaymentId,ShippingId,OrderTime,comentario,SubTotal,Valueimp")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,SupplierId,PaymentId,ShippingId,OrderTime,comentario,SubTotal,Valueimp")] Order order)
         {
             if (id != order.OrderId)
             {
@@ -142,7 +144,7 @@ namespace Facturacion.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", order.CustomerId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", order.SupplierId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", order.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", order.ShippingId);
             return View(order);
@@ -157,7 +159,7 @@ namespace Facturacion.Web.Controllers
             }
 
             var order = await _context.Order
-                .Include(o => o.Customer)
+                .Include(o => o.Supplier)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -217,7 +219,7 @@ namespace Facturacion.Web.Controllers
                 _context.Update(order);
                 _context.SaveChanges();
 
-                return RedirectToAction("Details", new {id = id});
+                return RedirectToAction("Details", new { id = id });
 
             }
 
@@ -226,8 +228,42 @@ namespace Facturacion.Web.Controllers
             return View(orderDetail);
 
         }
-    
+
+        public async Task<IActionResult> PrintPDF(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Order
+                .Include(o => o.Supplier)
+                .Include(o => o.Payment)
+                .Include(o => o.Shipping)
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            var orderview = new OrderView();
+            var orderdetail = new OrderDetail();
+
+            orderview.Order = await _context.Order
+                .Include(o => o.Supplier)
+                .Include(o => o.Payment)
+                .Include(o => o.Shipping)
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+
+            var dataorder = _context.OrderDetail.Include(od => od.Order).Include(od => od.Item).Where(od => od.OrderId.Equals(id)).ToList();
+            orderview.Details = dataorder;
+
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderdetail.OrderId);
+            ViewData["PaymentId"] = new SelectList(_context.Order, "PaymentId", "Pway", orderdetail.OrderId);
+            ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "ItemName", orderdetail.ItemId);
+
+            return View(orderview);
+
+        }
     }
 
 }
-

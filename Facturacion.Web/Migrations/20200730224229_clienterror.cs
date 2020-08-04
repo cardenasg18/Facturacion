@@ -2,7 +2,7 @@
 
 namespace Facturacion.Web.Migrations
 {
-    public partial class orders2 : Migration
+    public partial class clienterror : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

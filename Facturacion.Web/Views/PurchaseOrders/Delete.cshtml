@@ -1,4 +1,4 @@
-﻿@model Facturacion.Web.Models.Order
+﻿@model Facturacion.Web.Models.PurchaseOrder
 
 @{
     ViewData["Title"] = "Delete";
@@ -46,21 +46,21 @@
             @Html.DisplayFor(model => model.Valueimp)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.OrderId)
+            @Html.DisplayNameFor(model => model.PurchaseId)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.OrderId)
+            @Html.DisplayFor(model => model.PurchaseId)
         </dd>
         <dt>
-            Suplidor
+            Cliente
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Supplier.SupplierName)
+            @Html.DisplayFor(model => model.Customer.CustomerName)
         </dd>
     </dl>
 
     <form asp-action="Delete">
-        <input type="hidden" asp-for="OrderId" />
+        <input type="hidden" asp-for="PurchaseId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a class="btn btn-dark" asp-action="Index">Regresar</a>
     </form>

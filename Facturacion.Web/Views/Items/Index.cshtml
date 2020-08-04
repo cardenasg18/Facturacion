@@ -16,13 +16,13 @@
                 @Html.DisplayNameFor(model => model.ItemName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UnitsInStock)
+                Disponibles
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Comment)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UnitPrice)
+                Precio
             </th>
             <th>
                 Categoría
@@ -31,14 +31,6 @@
             <th>
                 Marca
                 @*@Html.DisplayNameFor(model => model.Brand)*@
-            </th>
-            <th>
-                Estado
-                @*@Html.DisplayNameFor(model => model.Status)*@
-            </th>
-            <th>
-                Suplidor
-                @*@Html.DisplayNameFor(model => model.Supplier)*@
             </th>
             <th></th>
         </tr>
@@ -63,12 +55,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Brand.BrandName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status.StatusOf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
             </td>
             <td>
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.ItemId">Editar</a> |

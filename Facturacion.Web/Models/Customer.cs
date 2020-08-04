@@ -56,6 +56,6 @@ namespace Facturacion.Web.Models
         public Country Country { get; set; }
 
         public string FullName => $"{CustomerName} {LastName}";
-        public ICollection<Order> Orders { get; set; }
+        
     }
 }

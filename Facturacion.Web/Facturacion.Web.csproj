@@ -9,16 +9,26 @@
     <Compile Remove="Migrations\20200615004724_Exchange.Designer.cs" />
     <Compile Remove="Migrations\20200617053611_errocliente.cs" />
     <Compile Remove="Migrations\20200617053611_errocliente.Designer.cs" />
+    <Compile Remove="Migrations\20200627002425_orders.cs" />
+    <Compile Remove="Migrations\20200627002425_orders.Designer.cs" />
+    <Compile Remove="Migrations\20200627004142_orders2.cs" />
+    <Compile Remove="Migrations\20200627004142_orders2.Designer.cs" />
     <Compile Remove="Migrations\20200706031553_cambiomil.cs" />
     <Compile Remove="Migrations\20200706031553_cambiomil.Designer.cs" />
+    <Compile Remove="Migrations\20200706035547_enticonfio.cs" />
+    <Compile Remove="Migrations\20200706035547_enticonfio.Designer.cs" />
     <Compile Remove="Migrations\20200709011251_vEmergente.cs" />
     <Compile Remove="Migrations\20200709011251_vEmergente.Designer.cs" />
     <Compile Remove="Migrations\20200709015323_vEmergente.cs" />
     <Compile Remove="Migrations\20200709015323_vEmergente.Designer.cs" />
     <Compile Remove="Migrations\20200709020955_vEmergente.cs" />
     <Compile Remove="Migrations\20200709020955_vEmergente.Designer.cs" />
+    <Compile Remove="Migrations\20200709021226_vEmergente.cs" />
+    <Compile Remove="Migrations\20200709021226_vEmergente.Designer.cs" />
     <Compile Remove="Migrations\20200710023625_vEmergente2.cs" />
     <Compile Remove="Migrations\20200710023625_vEmergente2.Designer.cs" />
+    <Compile Remove="Migrations\20200710035420_coñazo.cs" />
+    <Compile Remove="Migrations\20200710035420_coñazo.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +36,19 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="PDF\wkhtmltopdf\bin\wkhtmltoimage.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="PDF\wkhtmltopdf\bin\wkhtmltopdf.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="PDF\wkhtmltopdf\bin\wkhtmltox.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

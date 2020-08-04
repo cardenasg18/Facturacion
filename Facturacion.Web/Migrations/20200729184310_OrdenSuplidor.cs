@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Facturacion.Web.Migrations
 {
-    public partial class orders : Migration
+    public partial class OrdenSuplidor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,18 +20,33 @@ namespace Facturacion.Web.Migrations
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    OrderDate = table.Column<DateTime>(nullable: false),
-                    CustomerId = table.Column<int>(nullable: false),
-                    OrderStatus = table.Column<int>(nullable: false)
+                    SupplierId = table.Column<int>(nullable: false),
+                    PaymentId = table.Column<int>(nullable: false),
+                    ShippingId = table.Column<int>(nullable: false),
+                    OrderTime = table.Column<DateTime>(nullable: false),
+                    comentario = table.Column<string>(nullable: true),
+                    SubTotal = table.Column<decimal>(nullable: false),
+                    Valueimp = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    TotalValue = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Order", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_Order_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerId");
+                        name: "FK_Order_Payments_PaymentId",
+                        column: x => x.PaymentId,
+                        principalTable: "Payments",
+                        principalColumn: "PaymentId");
+                    table.ForeignKey(
+                        name: "FK_Order_Shippings_ShippingId",
+                        column: x => x.ShippingId,
+                        principalTable: "Shippings",
+                        principalColumn: "ShippingId");
+                    table.ForeignKey(
+                        name: "FK_Order_Suppliers_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "Suppliers",
+                        principalColumn: "SupplierId");
                 });
 
             migrationBuilder.CreateTable(
@@ -40,11 +55,11 @@ namespace Facturacion.Web.Migrations
                 {
                     DetailId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    OrderId = table.Column<int>(nullable: false),
                     ItemId = table.Column<int>(nullable: false),
-                    ItemName = table.Column<string>(maxLength: 30, nullable: false),
+                    Quantity = table.Column<float>(nullable: false),
                     UnitPrice = table.Column<decimal>(nullable: false),
-                    Quantity = table.Column<float>(nullable: false)
+                    TotalValue = table.Column<decimal>(nullable: false),
+                    OrderId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,9 +82,19 @@ namespace Facturacion.Web.Migrations
                 column: "SupplierId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_CustomerId",
+                name: "IX_Order_PaymentId",
                 table: "Order",
-                column: "CustomerId");
+                column: "PaymentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Order_ShippingId",
+                table: "Order",
+                column: "ShippingId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Order_SupplierId",
+                table: "Order",
+                column: "SupplierId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetail_ItemId",

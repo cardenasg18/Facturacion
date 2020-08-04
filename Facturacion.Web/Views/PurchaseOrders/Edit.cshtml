@@ -1,27 +1,26 @@
-﻿@model Facturacion.Web.Models.Order
+﻿@model Facturacion.Web.Models.PurchaseOrder
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>Agregar</h2>
+<h2>Editar</h2>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PurchaseId" />
             <div class="form-group">
-                <label asp-for="SupplierId" class="control-label"></label>
-                <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.SupplierId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="PaymentId" class="control-label"></label>
-                <select asp-for="PaymentId" class="form-control" asp-items="ViewBag.PaymentId"></select>
+                <label asp-for="CustomerId" class="control-label"></label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ShippingId" class="control-label"></label>
                 <select asp-for="ShippingId" class="form-control" asp-items="ViewBag.ShippingId"></select>
+                <span asp-validation-for="ShippingId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OrderTime" class="control-label"></label>
@@ -34,7 +33,7 @@
                 <span asp-validation-for="comentario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Agregar" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-warning" />
             </div>
         </form>
     </div>

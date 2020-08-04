@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Facturacion.Web.Models
 {
-    public class Order
+    public class PurchaseOrder
     {
         [Key]
-        public int OrderId { get; set; }
+        public int PurchaseId { get; set; }
 
         [Required]
-        [Display(Name = "Suplidor")]
-        [ForeignKey("SupplierName")]
-        public int SupplierId { get; set; }
+        [Display(Name = "Nombre")]
+        [ForeignKey("CustomerName")]
+        public int CustomerId { get; set; }
 
         [Required]
         [Display(Name = "Metodo de pago")]
@@ -56,10 +56,8 @@ namespace Facturacion.Web.Models
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal TotalValue { get; set; }
 
-        public virtual Supplier Supplier { get; set; }
+        public virtual Customer Customer { get; set; }
 
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
-
+        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
     }
 }

@@ -1,16 +1,16 @@
-﻿@model IEnumerable<Facturacion.Web.Models.Order>
+﻿@model IEnumerable<Facturacion.Web.Models.PurchaseOrder>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Ordenes <a class="btn btn-success" asp-action="Create">Agregar</a> </h2>
+<h2>Facturas <a class="btn btn-success" asp-action="Create">Agregar</a> </h2>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                Suplidor
+                Cliente
             </th>
             <th>
                 Método de pago
@@ -35,7 +35,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+                    @Html.DisplayFor(modelItem => item.Customer.FullName)
                 </td>
 
                 <td>
@@ -59,10 +59,10 @@
                 </td>
 
                 <td>
-                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.OrderId">Editar</a>|
-                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.OrderId">Detalles</a>|
-                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.OrderId">Eliminar</a>|
-                    <a asp-action="PrintPDF" asp-route-id="@item.OrderId" target="_blank" class="btn btn-warning btn-sm">Imprimir</a>
+                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.PurchaseId">Editar</a>|
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.PurchaseId">Detalles</a>|
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.PurchaseId">Eliminar</a>|
+                    <a asp-action="PrintPDF" asp-route-id="@item.PurchaseId" target="_blank" class="btn btn-warning btn-sm">Imprimir</a>
 
                 </td>
             </tr>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Facturacion.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200706035547_enticonfio")]
-    partial class enticonfio
+    [Migration("20200729184310_OrdenSuplidor")]
+    partial class OrdenSuplidor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -229,8 +229,7 @@ namespace Facturacion.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(40);
 
-                    b.Property<int>("Number")
-                        .HasMaxLength(15);
+                    b.Property<int>("Number");
 
                     b.Property<int>("PositionId");
 
@@ -357,8 +356,6 @@ namespace Facturacion.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomerId");
-
                     b.Property<DateTime>("OrderTime");
 
                     b.Property<int>("PaymentId");
@@ -367,6 +364,10 @@ namespace Facturacion.Web.Migrations
 
                     b.Property<decimal>("SubTotal");
 
+                    b.Property<int>("SupplierId");
+
+                    b.Property<decimal>("TotalValue");
+
                     b.Property<decimal>("Valueimp")
                         .HasColumnType("decimal(18, 2)");
 
@@ -374,11 +375,11 @@ namespace Facturacion.Web.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("CustomerId");
-
                     b.HasIndex("PaymentId");
 
                     b.HasIndex("ShippingId");
+
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("Order");
                 });
@@ -389,15 +390,13 @@ namespace Facturacion.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ItemId");
-
-                    b.Property<string>("ItemName")
-                        .IsRequired()
-                        .HasMaxLength(30);
+                    b.Property<int>("ItemId");
 
                     b.Property<int>("OrderId");
 
                     b.Property<float>("Quantity");
+
+                    b.Property<decimal>("TotalValue");
 
                     b.Property<decimal>("UnitPrice");
 
@@ -449,8 +448,7 @@ namespace Facturacion.Web.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<int>("Number")
-                        .HasMaxLength(15);
+                    b.Property<int>("Number");
 
                     b.Property<string>("SellerName")
                         .IsRequired()
@@ -526,8 +524,7 @@ namespace Facturacion.Web.Migrations
 
                     b.Property<int>("SupplierTypeId");
 
-                    b.Property<int>("Telephone")
-                        .HasMaxLength(15);
+                    b.Property<int>("Telephone");
 
                     b.HasKey("SupplierId");
 
@@ -692,11 +689,6 @@ namespace Facturacion.Web.Migrations
 
             modelBuilder.Entity("Facturacion.Web.Models.Order", b =>
                 {
-                    b.HasOne("Facturacion.Web.Models.Customer", "Customer")
-                        .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("Facturacion.Web.Models.Payment", "Payment")
                         .WithMany("Orders")
                         .HasForeignKey("PaymentId")
@@ -706,13 +698,19 @@ namespace Facturacion.Web.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("ShippingId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Facturacion.Web.Models.Supplier", "Supplier")
+                        .WithMany("Orders")
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Facturacion.Web.Models.OrderDetail", b =>
                 {
-                    b.HasOne("Facturacion.Web.Models.Item")
+                    b.HasOne("Facturacion.Web.Models.Item", "Item")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("ItemId");
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Facturacion.Web.Models.Order", "Order")
                         .WithMany("OrderDetails")

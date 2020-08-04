@@ -1,8 +1,8 @@
-﻿@model Facturacion.Web.ViewModels.OrderView
+﻿@model Facturacion.Web.ViewModels.PurchaseOrderView
 
 @{
-    ViewData["Title"] = "Details";
-    var id = Model.Order.OrderId;
+    ViewData["Title"] = "PurchaseDetails";
+    var id = Model.PurchaseOrder.PurchaseId;
 }
 
 
@@ -14,11 +14,10 @@
                 @*<h4 class="modal-title" id="gridSystemModalLabel">Agregar productos</h4>*@
             </div>
             <div class="modal-body">
-                @await Html.PartialAsync("AdicionarProducto", Model.OrderDetail, new ViewDataDictionary(ViewData)
+                @await Html.PartialAsync("AdicionarProducto", Model.PurchaseDetail, new ViewDataDictionary(ViewData)
                      {
-                            {"id", id }
-
-                    });
+                          { "id", id }
+                     });
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -28,32 +27,32 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <div>
-    <h4>Orden</h4>
+    <h4>Factura</h4>
     <hr />
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-sm-12 col-sm-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2> Orden: @Html.DisplayFor(model => model.Order.OrderId)</h2>
+                    <h2> Factura: @Html.DisplayFor(model => model.PurchaseOrder.PurchaseId)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br />
                     <div class="article form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
-                            Suplidor
+                            Nombre
                         </label>
                         <div class="col-md-6 col-sm-6 form-control" style="background-color: ivory; ">
-                            @Html.DisplayFor(model => model.Order.Supplier.SupplierName)
+                            @Html.DisplayFor(model => model.PurchaseOrder.Customer.FullName)
                         </div>
                     </div>
                     <div class="article form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
-                            @Html.DisplayNameFor(model => model.Order.Payment.Pway)
+                            @Html.DisplayNameFor(model => model.PurchaseOrder.Payment.Pway)
                         </label>
                         <div class="col-md-6 col-sm-6 form-control" style="background-color: ivory; ">
-                            @Html.DisplayFor(model => model.Order.Payment.Pway)
+                            @Html.DisplayFor(model => model.PurchaseOrder.Payment.Pway)
                         </div>
                     </div>
                     <div class="article form-group">
@@ -61,16 +60,16 @@
                             Forma de envío
                         </label>
                         <div class="col-md-6 col-sm-6 form-control" style="background-color: ivory; ">
-                            @Html.DisplayFor(model => model.Order.Shipping.ShippWay)
+                            @Html.DisplayFor(model => model.PurchaseOrder.Shipping.ShippWay)
                         </div>
                     </div>
                     <div class="article form-group">
 
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
-                            @Html.DisplayNameFor(model => model.Order.OrderTime)
+                            @Html.DisplayNameFor(model => model.PurchaseOrder.OrderTime)
                         </label>
                         <div class="col-md-6 col-sm-6 form-control" style="background-color: ivory; ">
-                            @Html.DisplayFor(model => model.Order.OrderTime)
+                            @Html.DisplayFor(model => model.PurchaseOrder.OrderTime)
                         </div>
                     </div>
 
@@ -80,18 +79,16 @@
     </div>
 </div>
 <div>
-    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Order.OrderId">Editar</a> |
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.PurchaseOrder.PurchaseId">Editar</a> |
     <a class="btn btn-dark" asp-action="Index">Regresar</a>
 </div>
 <hr>
-@*<button type="button" class="btn btn-success btn-large" data-toggle="modal" data-target="#adicionarArticulo">Adicionar producto</button>*@
-
 <div class="row">
     <div class="col-sm-12 col-sm-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Productos <button type="button" class="btn btn-success btn-large" data-toggle="modal" data-target="#adicionarProducto">Adicionar producto</button></h2>
-
+                <h2>Productos</h2> 
+                <button type="button" class="btn btn-success btn-large" data-toggle="modal" data-target="#adicionarProducto">Agregar factura</button>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -108,7 +105,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="data">
-                                    @foreach (var article in Model.Details)
+                                    @foreach (var article in Model.PurchaseDetails)
                                     {
                                         <tr>
                                             <td>
@@ -128,16 +125,16 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.Order.SubTotal)</td>
-                                        <td style="text-align:right;" class="valorsub">@Html.DisplayFor(Model => Model.Order.SubTotal)</td>
+                                        <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.PurchaseOrder.SubTotal)</td>
+                                        <td style="text-align:right;" class="valorsub">@Html.DisplayFor(Model => Model.PurchaseOrder.SubTotal)</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.Order.Valueimp)</td>
+                                        <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.PurchaseOrder.Valueimp)</td>
                                         <td style="text-align:right;" class="valori"> 18% </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.Order.TotalValue)</td>
-                                        <td style="text-align:right;" class="valort">@Html.DisplayFor(Model => Model.Order.TotalValue)</td>
+                                        <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.PurchaseOrder.TotalValue)</td>
+                                        <td style="text-align:right;" class="valort">@Html.DisplayFor(Model => Model.PurchaseOrder.TotalValue)</td>
                                     </tr>
                                 </tfoot>
                             </table>

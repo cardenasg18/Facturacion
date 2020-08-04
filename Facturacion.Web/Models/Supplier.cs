@@ -41,5 +41,6 @@ namespace Facturacion.Web.Models
         public SupplierType SupplierType { get; set; }
 
         public virtual ICollection<Item> Items { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
