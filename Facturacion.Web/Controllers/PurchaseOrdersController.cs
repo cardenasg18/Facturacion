@@ -9,6 +9,11 @@ using Facturacion.Web.Data;
 using Facturacion.Web.Models;
 using Facturacion.Web.ViewModels;
 using Rotativa.AspNetCore;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Asn1.Cmp;
+using Org.BouncyCastle.Asn1.X509;
+using Facturacion.Web.Migrations;
+using System.Runtime.Serialization;
 
 namespace Facturacion.Web.Controllers
 {
@@ -45,6 +50,7 @@ namespace Facturacion.Web.Controllers
             {
                 return NotFound();
             }
+
             var purchaseview = new PurchaseOrderView();
             var purchasedetail = new PurchaseDetail();
 
@@ -62,6 +68,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "ItemName", purchasedetail.ItemId);
 
             return View(purchaseview);
+
 
         }
 
@@ -200,26 +207,41 @@ namespace Facturacion.Web.Controllers
                 Models.Item item = _context.Items.Find(id_producto);
                 decimal price = item.UnitPrice;
 
-                decimal quantity = Convert.ToDecimal(purchasedetail.Quantity);
-                decimal pricet = quantity * Convert.ToDecimal(price);
-                decimal tax;
+                if (item.UnitsInStock < purchasedetail.Quantity)
+                {
+                    TempData["Mensaje"] = "La cantidad de productos que intenta facturar excede lo almacenado actualmente, favor verifique inventario y vuelva intentarlo.";
+                    //return Content("La cantidad que intenta facturar excede lo almacenado actualmente, favor intente nuevamente");
+                    return RedirectToAction("Details", new { id = id });
+                }
+                    
+                else
+                {
+                    item.UnitsInStock -= Convert.ToInt32(purchasedetail.Quantity);
+                    _context.Update(item);
+                    _context.SaveChanges();
 
-                purchasedetail.UnitPrice = Convert.ToInt32(price);
-                purchasedetail.TotalValue = pricet;
+                    decimal quantity = Convert.ToDecimal(purchasedetail.Quantity);
+                    decimal pricet = quantity * Convert.ToDecimal(price);
+                    decimal tax;
 
-                await _context.SaveChangesAsync();
+                    purchasedetail.UnitPrice = Convert.ToInt32(price);
+                    purchasedetail.TotalValue = pricet;
 
-                PurchaseOrder orden = _context.PurchaseOrder.Find(id);
-                orden.SubTotal += pricet;
-                orden.Valueimp = Convert.ToDecimal(0.18);
-                decimal pricetax = orden.Valueimp;
-                tax = pricet * pricetax;
-                pricet = pricet + tax;
-                orden.TotalValue += pricet;
-                _context.Update(orden);
-                _context.SaveChanges();
+                    await _context.SaveChangesAsync();
 
-                return RedirectToAction("PurchaseDetails", new { id = id });
+                    PurchaseOrder orden = _context.PurchaseOrder.Find(id);
+                    orden.SubTotal += pricet;
+                    orden.Valueimp = Convert.ToDecimal(0.18);
+                    decimal pricetax = orden.Valueimp;
+                    tax = pricet * pricetax;
+                    pricet = pricet + tax;
+                    orden.TotalValue += pricet;
+                    _context.Update(orden);
+                    _context.SaveChanges();
+
+                    return RedirectToAction("Details", new { id = id });
+                }
+
 
             }
 
@@ -241,10 +263,12 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
                 .FirstOrDefaultAsync(m => m.PurchaseId == id);
+
             if (orden == null)
             {
                 return NotFound();
             }
+
             var purchaseview = new PurchaseOrderView();
             var purchasedetail = new PurchaseDetail();
 
@@ -264,6 +288,7 @@ namespace Facturacion.Web.Controllers
             return View(purchaseview);
 
         }
+
     }
 
 }

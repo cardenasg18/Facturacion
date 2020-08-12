@@ -199,6 +199,9 @@ namespace Facturacion.Web.Controllers
 
                 Models.Item item = _context.Items.Find(id_producto);
                 decimal precio = item.UnitPrice;
+                item.UnitsInStock += Convert.ToInt32(orderDetail.Quantity);
+                _context.Update(item);
+                _context.SaveChanges();
 
                 decimal cantidad = Convert.ToDecimal(orderDetail.Quantity);
                 decimal preciot = cantidad * Convert.ToDecimal(precio);

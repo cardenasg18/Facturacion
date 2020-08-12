@@ -75,6 +75,7 @@ namespace Facturacion.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", item.BrandId);
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType", item.ClasificationId);
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName", item.CurrencyId);

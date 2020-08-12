@@ -15,4 +15,5 @@ namespace Facturacion.Web.ViewModels
         public Payment Payment { get; set; }
         public List<PurchaseDetail> PurchaseDetails { get; set; }
     }
+
 }
