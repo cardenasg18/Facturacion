@@ -17,5 +17,6 @@ namespace Facturacion.Web.Models
         public string UnitName { get; set; }
 
         public ICollection<Item> Items { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
