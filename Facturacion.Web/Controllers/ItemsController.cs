@@ -57,7 +57,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType");
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName");
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf");
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail");
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName");
             return View();
         }
@@ -75,12 +75,11 @@ namespace Facturacion.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", item.BrandId);
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType", item.ClasificationId);
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName", item.CurrencyId);
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", item.StatusId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", item.SupplierId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail", item.SupplierId);
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName", item.UnitId);
             return View(item);
         }
@@ -102,7 +101,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType", item.ClasificationId);
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName", item.CurrencyId);
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", item.StatusId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", item.SupplierId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail", item.SupplierId);
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName", item.UnitId);
             return View(item);
         }
@@ -143,7 +142,7 @@ namespace Facturacion.Web.Controllers
             ViewData["ClasificationId"] = new SelectList(_context.Clasifications, "ClasificationId", "ItemType", item.ClasificationId);
             ViewData["CurrencyId"] = new SelectList(_context.Currencies, "CurrencyId", "CurrencyName", item.CurrencyId);
             ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", item.StatusId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", item.SupplierId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "Mail", item.SupplierId);
             ViewData["UnitId"] = new SelectList(_context.Units, "UnitId", "UnitName", item.UnitId);
             return View(item);
         }

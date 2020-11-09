@@ -7,6 +7,7 @@
 <h2>Detalles</h2>
 
 <div>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -34,46 +35,40 @@
             @Html.DisplayFor(model => model.UnitPrice)
         </dd>
         <dt>
-            Categoría
-            @*@Html.DisplayNameFor(model => model.Clasification)*@
+            @Html.DisplayNameFor(model => model.Clasification)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Clasification.ItemType)
         </dd>
         <dt>
-            Marca
-            @*@Html.DisplayNameFor(model => model.Brand)*@
+            @Html.DisplayNameFor(model => model.Brand)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Brand.BrandName)
         </dd>
         <dt>
-            Marca
-            @*@Html.DisplayNameFor(model => model.Currency)*@
+            @Html.DisplayNameFor(model => model.Currency)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Currency.CurrencyName)
         </dd>
         <dt>
             Unidad
-            @*@Html.DisplayNameFor(model => model.Unit)*@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Unit.UnitName)
         </dd>
         <dt>
-            Estado
-            @*@Html.DisplayNameFor(model => model.Status)*@
+            @Html.DisplayNameFor(model => model.Status)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Status.StatusOf)
         </dd>
         <dt>
-            Suplidor
-            @*@Html.DisplayNameFor(model => model.Supplier)*@
+            @Html.DisplayNameFor(model => model.Supplier)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Supplier.SupplierName)
+            @Html.DisplayFor(model => model.Supplier.Mail)
         </dd>
     </dl>
 </div>

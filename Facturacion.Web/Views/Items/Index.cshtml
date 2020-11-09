@@ -13,25 +13,35 @@
     <thead>
         <tr>
             <th>
-                Combo
+                @Html.DisplayNameFor(model => model.ItemName)
             </th>
             <th>
-                Disponibles
+                @Html.DisplayNameFor(model => model.UnitsInStock)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Comment)
             </th>
             <th>
-                Precio
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Clasification)
             </th>
             <th>
-                Categoría
-                @*@Html.DisplayNameFor(model => model.Clasification)*@
+                @Html.DisplayNameFor(model => model.Brand)
             </th>
             <th>
-                Marca
-                @*@Html.DisplayNameFor(model => model.Brand)*@
+                Moneda
             </th>
+            <th>
+                Unidad
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Proveedor
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -50,12 +60,24 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UnitPrice)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Clasification.ItemType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Brand.BrandName)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency.CurrencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit.UnitName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.StatusOf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.Mail)
+            </td>*@
             <td>
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.ItemId">Editar</a> |
                 <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ItemId">Detalles</a> |

@@ -13,7 +13,7 @@ namespace Facturacion.Web.Models
         public int ItemId { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        [StringLength(30, ErrorMessage = "Límite de caracteres excedido")]
+        [StringLength(80, ErrorMessage = "Límite de caracteres excedido")]
         [Display(Name = "Artículo")]
         public string ItemName { get; set; }
 

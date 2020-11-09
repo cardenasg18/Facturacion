@@ -21,10 +21,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Telephone)
             </th>
-            <th>
+            @*<th>
                 Ubicación
-                @*@Html.DisplayNameFor(model => model.Location)*@
-            </th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>*@
             <th>
                 Tipo de suplidor
                 @*@Html.DisplayNameFor(model => model.SupplierType)*@
@@ -47,9 +47,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Location.Address)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.SupplierType.Type)
-            </td>
+            </td>*@
             <td>
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.SupplierId">Editar</a> |
                 <a class="btn btn-info" asp-action="Details" asp-route-id="@item.SupplierId">Detalles</a> |
