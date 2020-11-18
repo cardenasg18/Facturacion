@@ -12,14 +12,15 @@
             <th>
                 Suplidor
             </th>
-            <th>
+            @*<th>
                 Método de pago
+            </th>*@
+            <th>
+                Lugar de entrega
             </th>
             <th>
-                Número de mesa
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderTime)
+                Fecha
+                @*@Html.DisplayNameFor(model => model.OrderTime)*@
             </th>
             <th>
                 Observaciones
@@ -38,9 +39,9 @@
                     @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
                 </td>
 
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Payment.Pway)
-                </td>
+                </td>*@
 
                 <td>
                     @Html.DisplayFor(modelItem => item.Shipping.ShippWay)
