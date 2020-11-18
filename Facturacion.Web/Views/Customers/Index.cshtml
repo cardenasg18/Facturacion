@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Clientes</h2>
+<h2>Clientes <a class="btn btn-success" asp-action="Create">Agregar</a></h2>
 
 <p>
-    <a class="btn btn-success" asp-action="Create">Agregar</a>
+    
 </p>
 <table class="table">
     <thead>
@@ -28,10 +28,10 @@
                 Tipo de cliente
                 @*@Html.DisplayNameFor(model => model.CustomerType)*@
             </th>
-            <th>
+            @*<th>
                 País
-                @*@Html.DisplayNameFor(model => model.Country)*@
-            </th>
+                @html.displaynamefor(model => model.country)
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -53,9 +53,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerType.TypeCustomer)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Country.CountryName)
-            </td>
+            </td>*@
             <td>
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.CustomerId">Editar</a> |
                 <a class="btn btn-info" asp-action="Details" asp-route-id="@item.CustomerId">Detalles</a> |
