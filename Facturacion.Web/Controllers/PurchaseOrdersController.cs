@@ -22,6 +22,7 @@ namespace Facturacion.Web.Controllers
         private readonly DataContext _context;
 
         public PurchaseOrdersController(DataContext context)
+        
         {
             _context = context;
         }
@@ -29,7 +30,7 @@ namespace Facturacion.Web.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.PurchaseOrder.Include(o => o.Customer).Include(o => o.Payment).Include(o => o.Shipping);
+            var dataContext = _context.PurchaseOrder.Include(o => o.Chair).Include(o => o.Customer).Include(o => o.Payment).Include(o => o.Shipping);
             return View(await dataContext.ToListAsync());
         }
 
@@ -45,6 +46,7 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Customer)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
+                .Include(o => o.Chair)
                 .FirstOrDefaultAsync(m => m.PurchaseId == id);
             if (orden == null)
             {
@@ -58,6 +60,7 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Customer)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
+                .Include(o => o.Chair)
                 .FirstOrDefaultAsync(m => m.PurchaseId == id);
 
             var datapurchase = _context.PurchaseDetail.Include(od => od.PurchaseOrder).Include(od => od.Item).Where(od => od.PurchaseId.Equals(id)).ToList();
@@ -65,6 +68,7 @@ namespace Facturacion.Web.Controllers
 
             ViewData["PurchaseId"] = new SelectList(_context.PurchaseOrder, "PurchaseId", "PurchaseId", purchasedetail.PurchaseId);
             ViewData["PaymentId"] = new SelectList(_context.PurchaseOrder, "PaymentId", "Pway", purchasedetail.PurchaseId);
+            ViewData["ChairID"] = new SelectList(_context.PurchaseOrder, "ChairID", "ChairName", purchasedetail.PurchaseId);
             ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "ItemName", purchasedetail.ItemId);
 
             return View(purchaseview);
@@ -78,6 +82,7 @@ namespace Facturacion.Web.Controllers
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName");
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway");
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay");
+            ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName");
             return View();
         }
 
@@ -86,7 +91,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PurchaseId,CustomerId,PaymentId,ShippingId,OrderTime,comentario,SubTotal,Valueimp")] PurchaseOrder orden)
+        public async Task<IActionResult> Create([Bind("PurchaseId,CustomerId,PaymentId,ShippingId,ChairID,OrderTime,comentario,SubTotal,Valueimp")] PurchaseOrder orden)
         {
             if (ModelState.IsValid)
             {
@@ -97,6 +102,7 @@ namespace Facturacion.Web.Controllers
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", orden.CustomerId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", orden.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", orden.ShippingId);
+            ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName", orden.ChairID);
             return View(orden);
         }
 
@@ -116,6 +122,7 @@ namespace Facturacion.Web.Controllers
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", orden.CustomerId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", orden.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", orden.ShippingId);
+            ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName", orden.ChairID);
             return View(orden);
         }
 
@@ -124,7 +131,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PurchaseId,CustomerId,PaymentId,ShippingId,OrderTime,comentario,SubTotal,Valueimp")] PurchaseOrder orden)
+        public async Task<IActionResult> Edit(int id, [Bind("PurchaseId,CustomerId,PaymentId,ShippingId,ChairID,OrderTime,comentario,SubTotal,Valueimp")] PurchaseOrder orden)
         {
             if (id != orden.PurchaseId)
             {
@@ -154,6 +161,7 @@ namespace Facturacion.Web.Controllers
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", orden.CustomerId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", orden.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", orden.ShippingId);
+            ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName", orden.ChairID);
             return View(orden);
         }
 
@@ -169,6 +177,7 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Customer)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
+                .Include(o => o.Chair)
                 .FirstOrDefaultAsync(m => m.PurchaseId == id);
             if (orden == null)
             {
@@ -213,7 +222,7 @@ namespace Facturacion.Web.Controllers
                     //return Content("La cantidad que intenta facturar excede lo almacenado actualmente, favor intente nuevamente");
                     return RedirectToAction("Details", new { id = id });
                 }
-                    
+
                 else
                 {
                     item.UnitsInStock -= Convert.ToInt32(purchasedetail.Quantity);
@@ -234,6 +243,7 @@ namespace Facturacion.Web.Controllers
                     orden.Valueimp = Convert.ToDecimal(0.18);
                     decimal pricetax = orden.Valueimp;
                     tax = pricet * pricetax;
+                    orden.Valueimp = tax;
                     pricet = pricet + tax;
                     orden.TotalValue += pricet;
                     _context.Update(orden);
@@ -262,6 +272,7 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Customer)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
+                .Include(o => o.Chair)
                 .FirstOrDefaultAsync(m => m.PurchaseId == id);
 
             if (orden == null)
@@ -276,6 +287,7 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Customer)
                 .Include(o => o.Payment)
                 .Include(o => o.Shipping)
+                .Include(o => o.Chair)
                 .FirstOrDefaultAsync(m => m.PurchaseId == id);
 
             var dataorder = _context.PurchaseDetail.Include(od => od.PurchaseOrder).Include(od => od.Item).Where(od => od.PurchaseId.Equals(id)).ToList();
@@ -283,6 +295,7 @@ namespace Facturacion.Web.Controllers
 
             ViewData["PurchaseId"] = new SelectList(_context.PurchaseOrder, "PurchaseId", "PurchaseId", purchasedetail.PurchaseId);
             ViewData["PaymentId"] = new SelectList(_context.PurchaseOrder, "PaymentId", "Pway", purchasedetail.PurchaseId);
+            ViewData["ChairID"] = new SelectList(_context.PurchaseOrder, "ChairID", "ChairName", purchasedetail.PurchaseId);
             ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "ItemName", purchasedetail.ItemId);
 
             return View(purchaseview);

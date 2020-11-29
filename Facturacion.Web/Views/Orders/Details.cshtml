@@ -124,7 +124,8 @@
                                                 @Html.DisplayFor(modelItem => article.TotalValue)
                                             </td>
                                         </tr>
-                                    }
+                                     }
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -133,7 +134,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.Order.Valueimp)</td>
-                                        <td style="text-align:right;" class="valori"> 18% </td>
+                                        <td style="text-align:right;" class="valori">@Html.DisplayFor(Model => Model.Order.Valueimp) </td>
                                     </tr>
                                     <tr>
                                         <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.Order.TotalValue)</td>

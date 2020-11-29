@@ -77,6 +77,14 @@
                         </div>
                     </div>
                     <div class="article form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
+                            Silla
+                        </label>
+                        <div class="col-md-6 col-sm-6 form-control" style="background-color: ivory; ">
+                            @Html.DisplayFor(model => model.PurchaseOrder.Chair.ChairName)
+                        </div>
+                    </div>
+                    <div class="article form-group">
 
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
                             @Html.DisplayNameFor(model => model.PurchaseOrder.OrderTime)
@@ -137,7 +145,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.PurchaseOrder.Valueimp)</td>
-                                            <td style="text-align:right;" class="valori"> 18% </td>
+                                            <td style="text-align:right;" class="valori">@Html.DisplayFor(Model => Model.PurchaseOrder.Valueimp) </td>
                                         </tr>
                                         <tr>
                                             <td colspan="7" style="text-align:right;">@Html.DisplayNameFor(Model => Model.PurchaseOrder.TotalValue)</td>
