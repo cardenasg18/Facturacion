@@ -4,8 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Agregar</h2>
+<h2>Create</h2>
 
+<h4>PurchaseOrder</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -13,15 +14,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label"></label>
-                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+                <select asp-for="CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PaymentId" class="control-label"></label>
-                <select asp-for="PaymentId" class="form-control" asp-items="ViewBag.PaymentId"></select>
+                <select asp-for="PaymentId" class ="form-control" asp-items="ViewBag.PaymentId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ShippingId" class="control-label">Número de mesa</label>
-                <select asp-for="ShippingId" class="form-control" asp-items="ViewBag.ShippingId"></select>
+                <label asp-for="ShippingId" class="control-label"></label>
+                <select asp-for="ShippingId" class ="form-control" asp-items="ViewBag.ShippingId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChairID" class="control-label"></label>
+                <select asp-for="ChairID" class ="form-control" asp-items="ViewBag.ChairID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="OrderTime" class="control-label"></label>
@@ -33,18 +38,29 @@
                 <textarea asp-for="comentario" class="form-control"></textarea>
                 <span asp-validation-for="comentario" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="SubTotal" class="control-label"></label>
+                <input asp-for="SubTotal" class="form-control" />
+                <span asp-validation-for="SubTotal" class="text-danger"></span>
+            </div>
             <div class="form-group">
-                <input type="submit" value="Agregar" class="btn btn-primary" />
+                <label asp-for="Valueimp" class="control-label"></label>
+                <input asp-for="Valueimp" class="form-control" />
+                <span asp-validation-for="Valueimp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalValue" class="control-label"></label>
+                <input asp-for="TotalValue" class="form-control" />
+                <span asp-validation-for="TotalValue" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a class="btn btn-dark" asp-action="Index">Regresar</a>
+    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 

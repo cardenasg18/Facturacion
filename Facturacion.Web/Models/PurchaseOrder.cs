@@ -29,6 +29,12 @@ namespace Facturacion.Web.Models
         public int ShippingId { get; set; }
         public Shipping Shipping { get; set; }
 
+        [Required]
+        [Display(Name = "Silla")]
+        [ForeignKey("ChairName")]
+        public int ChairID { get; set; }
+        public Chair Chair { get; set; }
+
         [Display(Name = "Fecha de la orden")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]

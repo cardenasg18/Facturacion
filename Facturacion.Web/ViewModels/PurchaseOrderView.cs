@@ -13,6 +13,7 @@ namespace Facturacion.Web.ViewModels
         public Customer Customer { get; set; }
         public Shipping Shipping { get; set; }
         public Payment Payment { get; set; }
+        public Chair Chair { get; set; }
         public List<PurchaseDetail> PurchaseDetails { get; set; }
     }
 

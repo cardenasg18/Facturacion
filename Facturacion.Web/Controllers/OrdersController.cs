@@ -217,6 +217,7 @@ namespace Facturacion.Web.Controllers
                 order.Valueimp = Convert.ToDecimal(0.18);
                 decimal precioimp = order.Valueimp;
                 impuesto = preciot * precioimp;
+                order.Valueimp = impuesto;
                 preciot = preciot + impuesto;
                 order.TotalValue += preciot;
                 _context.Update(order);

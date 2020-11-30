@@ -40,6 +40,7 @@ namespace Facturacion.Web.Data
         public DbSet<Facturacion.Web.Models.PurchaseDetail> PurchaseDetail { get; set; }
         public DbSet<Facturacion.Web.Models.PurchaseOrder> PurchaseOrder { get; set; }
         public DbSet<Facturacion.Web.Models.Product> Products { get; set; }
+        public DbSet<Facturacion.Web.Models.Chair> Chairs { get; set; }
 
 
 
