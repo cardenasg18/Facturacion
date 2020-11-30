@@ -13,7 +13,10 @@
     <thead>
         <tr>
             <th>
-               Mesa 
+                Número de mesa
+            </th>
+            <th>
+                Estado
             </th>
             <th></th>
         </tr>
@@ -25,8 +28,11 @@
                 @Html.DisplayFor(modelItem => item.ShippWay)
             </td>
             <td>
-                <a class="btn btn-primary"  asp-action="Edit" asp-route-id="@item.ShippingId">Editar</a> |
-                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ShippingId">Detalle</a> |
+                @Html.DisplayFor(modelItem => item.Status.StatusOf)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.ShippingId">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ShippingId">Detalles</a> |
                 <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ShippingId">Eliminar</a>
             </td>
         </tr>

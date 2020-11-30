@@ -16,18 +16,15 @@
                 Método de pago
             </th>
             <th>
-<<<<<<< HEAD
                 Número de mesa
-=======
-               Número de mesa
->>>>>>> 5c7b2ec918fb1548e3cc9a56ba7d3b8b0bc150c5
+
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderTime)
             </th>
             @*<th>
-                Observaciones
-            </th>*@
+            Observaciones
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.TotalValue)
             </th>
@@ -37,39 +34,39 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer.FullName)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FullName)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Payment.Pway)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment.Pway)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Shipping.ShippWay)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shipping.ShippWay)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderTime)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
 
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.comentario)
-                </td>*@
+            @*<td>
+            @Html.DisplayFor(modelItem => item.comentario)
+        </td>*@
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalValue)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalValue)
+            </td>
 
-                <td>
-                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.PurchaseId">Editar</a>|
-                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.PurchaseId">Detalles</a>|
-                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.PurchaseId">Eliminar</a>|
-                    <a asp-action="PrintPDF" asp-route-id="@item.PurchaseId" target="_blank" class="btn btn-warning btn-sm">Imprimir</a>
+            <td>
+                <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.PurchaseId">Editar</a>|
+                <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.PurchaseId">Detalles</a>|
+                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.PurchaseId">Eliminar</a>|
+                <a asp-action="PrintPDF" asp-route-id="@item.PurchaseId" target="_blank" class="btn btn-warning btn-sm">Imprimir</a>
 
-                </td>
-            </tr>
-        }
+            </td>
+        </tr>
+         }
     </tbody>
 </table>

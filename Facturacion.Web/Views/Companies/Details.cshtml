@@ -34,15 +34,13 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            Ubicación
-            @*@Html.DisplayNameFor(model => model.Location)*@
+            @Html.DisplayNameFor(model => model.Location)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Location.Address)
         </dd>
         <dt>
-            Vendedor
-            @*@Html.DisplayNameFor(model => model.Seller)*@
+            @Html.DisplayNameFor(model => model.Seller)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Seller.Email)
@@ -50,6 +48,6 @@
     </dl>
 </div>
 <div>
-    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.CompanyId">Editar</a> |
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.CompanyId">Editar</a> |
     <a class="btn btn-dark" asp-action="Index">Regresar</a>
 </div>

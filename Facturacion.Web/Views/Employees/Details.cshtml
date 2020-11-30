@@ -34,22 +34,19 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            Empresa
-            @*@Html.DisplayNameFor(model => model.Company)*@
+            @Html.DisplayNameFor(model => model.Company)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Company.CompanyName)
         </dd>
         <dt>
-            Puesto
-            @*@Html.DisplayNameFor(model => model.Position)*@
+            @Html.DisplayNameFor(model => model.Position)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Position.PositionName)
         </dd>
         <dt>
-            Estado
-            @*@Html.DisplayNameFor(model => model.Status)*@
+            @Html.DisplayNameFor(model => model.Status)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Status.StatusOf)
@@ -57,6 +54,6 @@
     </dl>
 </div>
 <div>
-    <a class="btn btn-primary"asp-action="Edit" asp-route-id="@Model.EmployeeId">Editar</a> |
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.EmployeeId">Editar</a> |
     <a class="btn btn-dark" asp-action="Index">Regresar</a>
 </div>

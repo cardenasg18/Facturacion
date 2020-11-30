@@ -4,27 +4,33 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
+<h3>¿Seguro que desea eliminar esto?</h3>
 <div>
-    <h4>PurchaseOrder</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Payment)
+            Cliente
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+        <dt>
+            Método de pago
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Payment.Pway)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Shipping)
+            Número de mesa
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Shipping.ShippWay)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Chair)
+            Silla
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Chair.ChairName)
@@ -36,7 +42,7 @@
             @Html.DisplayFor(model => model.OrderTime)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.comentario)
+            Observación
         </dt>
         <dd>
             @Html.DisplayFor(model => model.comentario)
@@ -59,17 +65,12 @@
         <dd>
             @Html.DisplayFor(model => model.TotalValue)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Customer)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Customer.CustomerName)
-        </dd>
+
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="PurchaseId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn btn-primary" /> |
+        <a class="btn btn-dark" asp-action="Index">Regresar</a>
     </form>
 </div>

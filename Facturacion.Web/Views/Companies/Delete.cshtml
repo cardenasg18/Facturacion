@@ -4,8 +4,7 @@
     ViewData["Title"] = "Delete";
 }
 
-
-<h1>¿Seguro que desea eliminar esto?</h1>
+<h3>¿Seguro que deseas eliminar este campo?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -34,15 +33,13 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            Ubicación
-            @*@Html.DisplayNameFor(model => model.Location)*@
+            @Html.DisplayNameFor(model => model.Location)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Location.Address)
         </dd>
         <dt>
-            Vendedor
-            @*@Html.DisplayNameFor(model => model.Seller)*@
+            @Html.DisplayNameFor(model => model.Seller)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Seller.Email)

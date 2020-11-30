@@ -17,9 +17,9 @@ namespace Facturacion.Web.Models
         public string SellerName { get; set; }
 
         [Display(Name = "Teléfono")]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "Número invalido.")]
-        [RegularExpression("([0-9][0-9]*)", ErrorMessage = "Sólo debe Colocar Números")]
-        public int Number { get; set; }
+        [MaxLength(10, ErrorMessage = "Número incorrecto.")]
+        //[RegularExpression("([0-9][0-9]*)", ErrorMessage = "Sólo debe Colocar Números")]
+        public string Number { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio.")]
         [Display(Name = "Correo")]

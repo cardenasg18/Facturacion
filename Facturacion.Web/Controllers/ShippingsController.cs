@@ -22,7 +22,8 @@ namespace Facturacion.Web.Controllers
         // GET: Shippings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Shippings.ToListAsync());
+            var dataContext = _context.Shippings.Include(s => s.Status);
+            return View(await dataContext.ToListAsync());
         }
 
         // GET: Shippings/Details/5
@@ -34,6 +35,7 @@ namespace Facturacion.Web.Controllers
             }
 
             var shipping = await _context.Shippings
+                .Include(s => s.Status)
                 .FirstOrDefaultAsync(m => m.ShippingId == id);
             if (shipping == null)
             {
@@ -46,6 +48,7 @@ namespace Facturacion.Web.Controllers
         // GET: Shippings/Create
         public IActionResult Create()
         {
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ShippingId,ShippWay")] Shipping shipping)
+        public async Task<IActionResult> Create([Bind("ShippingId,ShippWay,StatusId")] Shipping shipping)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace Facturacion.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", shipping.StatusId);
             return View(shipping);
         }
 
@@ -78,6 +82,7 @@ namespace Facturacion.Web.Controllers
             {
                 return NotFound();
             }
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", shipping.StatusId);
             return View(shipping);
         }
 
@@ -86,7 +91,7 @@ namespace Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ShippingId,ShippWay")] Shipping shipping)
+        public async Task<IActionResult> Edit(int id, [Bind("ShippingId,ShippWay,StatusId")] Shipping shipping)
         {
             if (id != shipping.ShippingId)
             {
@@ -113,6 +118,7 @@ namespace Facturacion.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusOf", shipping.StatusId);
             return View(shipping);
         }
 
@@ -125,6 +131,7 @@ namespace Facturacion.Web.Controllers
             }
 
             var shipping = await _context.Shippings
+                .Include(s => s.Status)
                 .FirstOrDefaultAsync(m => m.ShippingId == id);
             if (shipping == null)
             {

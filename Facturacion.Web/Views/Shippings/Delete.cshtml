@@ -4,23 +4,30 @@
     ViewData["Title"] = "Delete";
 }
 
-  
 
-<h1>¿Seguro que desea eliminar esto?</h1>
+
+<h3>¿Seguro que desea eliminar esto?</h3>
 <div>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Mesa
+            Número de mesa
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ShippWay)
+        </dd>
+        <dt>
+           Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status.StatusOf)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ShippingId" />
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a class="btn btn-dark" asp-action="Index">Regresar</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-dark"  asp-action="Index">Regresar</a>
     </form>
 </div>

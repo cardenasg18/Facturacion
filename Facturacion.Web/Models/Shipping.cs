@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,6 +17,12 @@ namespace Facturacion.Web.Models
         [Display(Name ="Forma de envío")]
         [MaxLength(30, ErrorMessage ="Límite de caracteres excedido.")]
         public string ShippWay { get; set; }
+
+        [Required]
+        [Display(Name = "Estado")]
+        [ForeignKey("StatusOf")]
+        public int StatusId { get; set; }
+        public Status Status { get; set; }
 
         public ICollection<Order> Orders { get; set; }
     }

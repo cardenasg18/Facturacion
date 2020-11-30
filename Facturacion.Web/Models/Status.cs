@@ -18,5 +18,6 @@ namespace Facturacion.Web.Models
         public ICollection<Employee> Employees { get; set; }
         public ICollection<Item> Items { get; set; }
         public ICollection<Chair> Chairs { get; set; }
+        public ICollection<Shipping> Shippings { get; set; }
     }
 }

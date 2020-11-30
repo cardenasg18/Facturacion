@@ -7,14 +7,20 @@
 <h2>Detalles</h2>
 
 <div>
-  
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Mesa
+            Número de mesa
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ShippWay)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status.StatusOf)
         </dd>
     </dl>
 </div>

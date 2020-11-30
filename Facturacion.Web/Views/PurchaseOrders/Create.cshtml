@@ -21,7 +21,7 @@
                 <select asp-for="PaymentId" class ="form-control" asp-items="ViewBag.PaymentId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ShippingId" class="control-label"></label>
+                <label asp-for="ShippingId" class="control-label">Número de mesa</label>
                 <select asp-for="ShippingId" class ="form-control" asp-items="ViewBag.ShippingId"></select>
             </div>
             <div class="form-group">
@@ -34,7 +34,7 @@
                 <span asp-validation-for="OrderTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="comentario" class="control-label"></label>
+                <label asp-for="comentario" class="control-label">Observación</label>
                 <textarea asp-for="comentario" class="form-control"></textarea>
                 <span asp-validation-for="comentario" class="text-danger"></span>
             </div>
@@ -54,13 +54,13 @@
                 <span asp-validation-for="TotalValue" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-dark" asp-action="Index">Regresar</a>
 </div>
 

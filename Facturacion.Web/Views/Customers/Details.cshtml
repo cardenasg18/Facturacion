@@ -4,9 +4,10 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Detalles</h2>
+<h2>Details</h2>
 
 <div>
+    <h4>Customer</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -22,8 +23,7 @@
             @Html.DisplayFor(model => model.LastName)
         </dd>
         <dt>
-            Tipo de documento
-            @*@Html.DisplayNameFor(model => model.DocumentType)*@
+            @Html.DisplayNameFor(model => model.DocumentType)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.DocumentType.TypeDocument)
@@ -47,15 +47,13 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            Tipo de cliente
-            @*@Html.DisplayNameFor(model => model.CustomerType)*@
+            @Html.DisplayNameFor(model => model.CustomerType)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.CustomerType.TypeCustomer)
         </dd>
         <dt>
-            País
-            @*@Html.DisplayNameFor(model => model.Country)*@
+            @Html.DisplayNameFor(model => model.Country)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Country.CountryName)
@@ -63,6 +61,6 @@
     </dl>
 </div>
 <div>
-    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.CustomerId">Editar</a> |
-    <a class="btn btn-dark" asp-action="Index">Regresar</a>
+    <a asp-action="Edit" asp-route-id="@Model.CustomerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Menú <a class="btn btn-success" asp-action="Create">Agregar</a></h2>
+<h2>Menús <a class="btn btn-success" asp-action="Create">Agregar</a></h2>
 
 <p>
     
@@ -16,33 +16,32 @@
                 @Html.DisplayNameFor(model => model.ItemName)
             </th>
             <th>
-                Disponibles
                 @*@Html.DisplayNameFor(model => model.UnitsInStock)*@
+                Disponible
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Comment)
             </th>
             <th>
                 Precio
-                @*@Html.DisplayNameFor(model => model.UnitPrice)*@
+            </th>
+            <th>
+                Categoría
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.Clasification)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Brand)
-            </th>
-            <th>
-                Moneda
-            </th>
-            <th>
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.Currency)
+            </th>*@
+            @*<th>
                 Unidad
-            </th>
+            </th>*@
             <th>
-                Estado
+               Estado
             </th>
-            <th>
-                Proveedor
+            @*<th>
+                @Html.DisplayNameFor(model => model.Supplier)
             </th>*@
             <th></th>
         </tr>
@@ -62,22 +61,22 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UnitPrice)
             </td>
-            @*<td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Clasification.ItemType)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Brand.BrandName)
-            </td>
-            <td>
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Currency.CurrencyName)
-            </td>
-            <td>
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Unit.UnitName)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Status.StatusOf)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Supplier.Mail)
             </td>*@
             <td>
