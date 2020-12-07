@@ -93,17 +93,20 @@ namespace Facturacion.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PurchaseId,CustomerId,PaymentId,ShippingId,ChairID,OrderTime,comentario,SubTotal,Valueimp")] PurchaseOrder orden)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(orden);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", orden.CustomerId);
-            ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", orden.PaymentId);
-            ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", orden.ShippingId);
-            ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName", orden.ChairID);
-            return View(orden);
+   
+                if (ModelState.IsValid)
+                {
+                    _context.Add(orden);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", orden.CustomerId);
+                ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", orden.PaymentId);
+                ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", orden.ShippingId);
+                ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName", orden.ChairID);
+                return View(orden);
+
+            
         }
 
         // GET: Orders/Edit/5
@@ -221,7 +224,8 @@ namespace Facturacion.Web.Controllers
                     TempData["Mensaje"] = "La cantidad de productos que intenta facturar excede lo almacenado actualmente, favor verifique inventario y vuelva intentarlo.";
                     //return Content("La cantidad que intenta facturar excede lo almacenado actualmente, favor intente nuevamente");
                     return RedirectToAction("Details", new { id = id });
-                }
+
+                } 
 
                 else
                 {

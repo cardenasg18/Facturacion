@@ -4,14 +4,16 @@ using Facturacion.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Facturacion.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201207011654_login2")]
+    partial class login2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -358,11 +360,10 @@ namespace Facturacion.Web.Migrations
 
                     b.Property<int>("Password");
 
-                    b.Property<int>("UserId");
+                    b.Property<string>("UserMail")
+                        .IsRequired();
 
                     b.HasKey("LoginId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Login");
                 });
@@ -850,14 +851,6 @@ namespace Facturacion.Web.Migrations
                     b.HasOne("Facturacion.Web.Models.Country", "Country")
                         .WithMany("Locations")
                         .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Facturacion.Web.Models.Login", b =>
-                {
-                    b.HasOne("Facturacion.Web.Models.Usuario", "Usuario")
-                        .WithMany("Logins")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
