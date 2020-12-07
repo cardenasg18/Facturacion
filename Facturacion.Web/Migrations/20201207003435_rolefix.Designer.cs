@@ -4,14 +4,16 @@ using Facturacion.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Facturacion.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201207003435_rolefix")]
+    partial class rolefix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -348,23 +350,6 @@ namespace Facturacion.Web.Migrations
                     b.HasIndex("CountryId");
 
                     b.ToTable("Locations");
-                });
-
-            modelBuilder.Entity("Facturacion.Web.Models.Login", b =>
-                {
-                    b.Property<int>("LoginId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Password");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("LoginId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Login");
                 });
 
             modelBuilder.Entity("Facturacion.Web.Models.Neighborhood", b =>
@@ -850,14 +835,6 @@ namespace Facturacion.Web.Migrations
                     b.HasOne("Facturacion.Web.Models.Country", "Country")
                         .WithMany("Locations")
                         .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Facturacion.Web.Models.Login", b =>
-                {
-                    b.HasOne("Facturacion.Web.Models.Usuario", "Usuario")
-                        .WithMany("Logins")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
