@@ -306,6 +306,17 @@ namespace Facturacion.Web.Controllers
 
         }
 
+        //[HttpPost]
+        //public IActionResult GetStatus(int MesaID)
+        //{
+        //    var mesa = _context.Shippings.Where(s => s.ShippingId == MesaID);
+        //    if (mesa.Where(s => s.ShippingId == MesaID && s.StatusId == 1).Any())
+        //    {
+        //        TempData["Mensaje"] = "La cantidad de productos que intenta facturar excede lo almacenado actualmente, favor verifique inventario y vuelva intentarlo.";
+        //        return RedirectToAction("Status", new { mesa = "Reservado" });
+        //    }
+        //    return RedirectToAction("Status", new { mesa = "Reservado" });
+        //}
     }
 
 }
