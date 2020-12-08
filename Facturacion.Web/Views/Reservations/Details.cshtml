@@ -1,0 +1,48 @@
+﻿@model Facturacion.Web.Models.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Personas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Personas)
+        </dd>
+        <dt>
+            Mesa
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shipping.ShippWay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.RservationId">Editar</a> |
+    <a class="btn btn-dark" asp-action="Index">Regresar</a>
+</div>

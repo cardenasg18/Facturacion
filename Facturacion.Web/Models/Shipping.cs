@@ -25,5 +25,6 @@ namespace Facturacion.Web.Models
         public Status Status { get; set; }
 
         public ICollection<Order> Orders { get; set; }
+        public ICollection<Reservation> Reservations { get; set; }
     }
 }
