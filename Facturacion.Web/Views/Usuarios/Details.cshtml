@@ -2,36 +2,42 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "_Layout_2";
 }
 
-<h2>Details</h2>
+    <center>
 
-<div>
-    <h4>Usuario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserMail)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.UserMail)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd>
-            *********
-            @*@Html.DisplayFor(model => model.Password)*@
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Role.RoleName)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.UserId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        <h2>Detalles</h2>
+
+        <div>
+            <hr />
+            @*<dl class="dl-horizontal">*@
+            <dt>
+                @Html.DisplayNameFor(model => model.UserMail)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserMail)
+            </dd>
+            <div class="container">
+                
+            </div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+            <dd>
+                *********
+                @*@Html.DisplayFor(model => model.Password)*@
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Role)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Role.RoleName)
+            </dd>
+            @*</dl>*@
+        </div>
+        <div>
+            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UserId">Editar</a> |
+            <a class="btn btn-info" asp-action="Index">Regresar</a>
+        </div>
+    </center>

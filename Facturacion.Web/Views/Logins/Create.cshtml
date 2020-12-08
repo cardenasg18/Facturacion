@@ -1,56 +1,44 @@
 ﻿@model Facturacion.Web.Models.Login
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = null;
+    ViewData["Title"] = "Login Page";
+    Layout = "_Layout_2";
 }
 
-    <center>
-
+    @*<center>*@
 
 
         <h1>Login</h1>
         <hr />
-        <h1>  </h1>
-        <h1>  </h1>
-        <h1>  </h1>
 
-        <div class="row">
+        @*<div class="row">*@
+<div class="align-content-center">
+    <div class="row">
+        <div class="col-md-3">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                </div>
 
-            <div class="col-md-4">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="UserId" class="control-label"></label>
-                        <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                    </div>
-                    <h2>  </h2>
-                    <div class="form-group">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" class="form-control" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <h1>  </h1>
-                    <h1>  </h1>
-                    <h1>  </h1>
-                    <div class="form-group">
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Index">Ingresar</a>
-                    </div>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
 
+                <div class="form-group">
+                    <a class="btn btn-success" asp-controller="Home" asp-action="Index">Ingresar</a> ||
+                    <a class="btn btn-primary" asp-controller="Usuarios" asp-action="Create">Registrarse</a>
+                </div>
+
+            </form>
         </div>
-        <h1>  </h1>
-        <h1>  </h1>
-        <h1>  </h1>
-
-
-        <div>
-            <a class="btn btn-info" asp-controller="Usuarios" asp-action="Create">Registrarse</a>
-        </div>
-
-
-    </center>
+    </div>
+</div>
+            @*</div>*@
+    @*</center>*@
 
 
 
