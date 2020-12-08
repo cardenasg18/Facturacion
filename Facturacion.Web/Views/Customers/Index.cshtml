@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+    <h2>
+         Clientes <a class="btn btn-success" asp-action="Create">Agregar</a>
+    </h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -33,9 +34,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.CustomerType)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Country)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -63,13 +64,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerType.TypeCustomer)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Country.CountryName)
-            </td>
+            </td>*@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CustomerId">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.CustomerId">Detalles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CustomerId">Eliminar</a>
             </td>
         </tr>
 }

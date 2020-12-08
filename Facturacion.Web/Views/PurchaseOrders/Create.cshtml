@@ -2,11 +2,10 @@
 
 @{
     ViewData["Title"] = "Create";
+    //var id = Model.Shipping.ShippingId;
 }
 
-<h2>Create</h2>
-
-<h4>PurchaseOrder</h4>
+<h4>Crear una Factura</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -56,6 +55,16 @@
         <div class="form-group">
             <input type="submit" value="Agregar" class="btn btn-primary" />
             <a class="btn btn-dark" asp-action="Index">Regresar</a>
+            <a class="btn btn-info" asp-controller="Shippings" asp-action="Index">Mesas Disponibles</a>
+
+            @*@foreach(var f in Model.PurchaseDetails)
+        {
+        <button class="btn btn-info" type="button"
+                data-target="#modal_verificar_mesas" data-toggle="modal"
+                data-backdrop="static" data-keyboard="false"
+                onclick="verificar_mesas">
+        </button>
+        }*@
         </div>
         </form>
     </div>

@@ -199,7 +199,7 @@ namespace Facturacion.Web.Controllers
 
                 Models.Product product = _context.Products.Find(id_producto);
                 decimal precio = product.PriceP;
-                product.PriceP += Convert.ToInt32(orderDetail.Quantity);
+                product.Cantidad += Convert.ToInt32(orderDetail.Quantity);
                 _context.Update(product);
                 _context.SaveChanges();
 

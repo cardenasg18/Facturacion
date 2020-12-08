@@ -22,7 +22,7 @@ namespace Facturacion.Web.Controllers
         private readonly DataContext _context;
 
         public PurchaseOrdersController(DataContext context)
-        
+
         {
             _context = context;
         }
@@ -93,20 +93,20 @@ namespace Facturacion.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PurchaseId,CustomerId,PaymentId,ShippingId,ChairID,OrderTime,comentario,SubTotal,Valueimp")] PurchaseOrder orden)
         {
-   
-                if (ModelState.IsValid)
-                {
-                    _context.Add(orden);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", orden.CustomerId);
-                ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", orden.PaymentId);
-                ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", orden.ShippingId);
-                ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName", orden.ChairID);
-                return View(orden);
 
-            
+            if (ModelState.IsValid)
+            {
+                _context.Add(orden);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", orden.CustomerId);
+            ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "Pway", orden.PaymentId);
+            ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippWay", orden.ShippingId);
+            ViewData["ChairID"] = new SelectList(_context.Chairs, "ChairID", "ChairName", orden.ChairID);
+            return View(orden);
+
+
         }
 
         // GET: Orders/Edit/5
@@ -225,7 +225,7 @@ namespace Facturacion.Web.Controllers
                     //return Content("La cantidad que intenta facturar excede lo almacenado actualmente, favor intente nuevamente");
                     return RedirectToAction("Details", new { id = id });
 
-                } 
+                }
 
                 else
                 {
@@ -255,8 +255,6 @@ namespace Facturacion.Web.Controllers
 
                     return RedirectToAction("Details", new { id = id });
                 }
-
-
             }
 
             ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "Comment", purchasedetail.ItemId);
@@ -317,6 +315,24 @@ namespace Facturacion.Web.Controllers
         //    }
         //    return RedirectToAction("Status", new { mesa = "Reservado" });
         //}
-    }
 
+        //public async Task<IActionResult> GetMesas([Bind("ShippingId, ShippWay, StatusId")] Shipping shipping)
+        //{
+        //        _context.Add(shipping);
+
+        //        int id_shipping = shipping.ShippingId;
+        //        string shippway = shipping.ShippWay;
+        //        int id_status = shipping.StatusId;
+
+        //        Models.Shipping shipping1 = _context.Shippings.Find(id_shipping);
+        //        Models.Shipping shipping2 = _context.Shippings.Find(id_status);
+            
+        //    return View(GetMesas);
+        //}
+
+        //private IActionResult View(Func<Shipping, Task<IActionResult>> getMesas)
+        //{
+        //    throw new NotImplementedException();
+        //}
+    }
 }
