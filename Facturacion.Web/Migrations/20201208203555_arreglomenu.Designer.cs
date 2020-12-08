@@ -4,14 +4,16 @@ using Facturacion.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Facturacion.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201208203555_arreglomenu")]
+    partial class arreglomenu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -564,31 +566,6 @@ namespace Facturacion.Web.Migrations
                     b.ToTable("PurchaseOrder");
                 });
 
-            modelBuilder.Entity("Facturacion.Web.Models.Reservation", b =>
-                {
-                    b.Property<int>("RservationId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CustomerId");
-
-                    b.Property<DateTime>("Hora");
-
-                    b.Property<DateTime>("OrderTime");
-
-                    b.Property<int>("Personas");
-
-                    b.Property<int>("ShippingId");
-
-                    b.HasKey("RservationId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("ShippingId");
-
-                    b.ToTable("Reservation");
-                });
-
             modelBuilder.Entity("Facturacion.Web.Models.Role", b =>
                 {
                     b.Property<int>("RoleId")
@@ -965,19 +942,6 @@ namespace Facturacion.Web.Migrations
 
                     b.HasOne("Facturacion.Web.Models.Shipping", "Shipping")
                         .WithMany()
-                        .HasForeignKey("ShippingId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Facturacion.Web.Models.Reservation", b =>
-                {
-                    b.HasOne("Facturacion.Web.Models.Customer", "Customer")
-                        .WithMany("Reservations")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Facturacion.Web.Models.Shipping", "Shipping")
-                        .WithMany("Reservations")
                         .HasForeignKey("ShippingId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

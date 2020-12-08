@@ -1,8 +1,9 @@
 ﻿@model Facturacion.Web.Models.PurchaseOrder
 
+
 @{
     ViewData["Title"] = "Create";
-    //var id = Model.Shipping.ShippingId;
+    
 }
 
 <h4>Crear una Factura</h4>
@@ -13,19 +14,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label"></label>
-                <select asp-for="CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PaymentId" class="control-label"></label>
-                <select asp-for="PaymentId" class ="form-control" asp-items="ViewBag.PaymentId"></select>
+                <select asp-for="PaymentId" class="form-control" asp-items="ViewBag.PaymentId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ShippingId" class="control-label">Número de mesa</label>
-                <select asp-for="ShippingId" class ="form-control" asp-items="ViewBag.ShippingId"></select>
+                <select asp-for="ShippingId" class="form-control" asp-items="ViewBag.ShippingId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ChairID" class="control-label"></label>
-                <select asp-for="ChairID" class ="form-control" asp-items="ViewBag.ChairID"></select>
+                <select asp-for="ChairID" class="form-control" asp-items="ViewBag.ChairID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="OrderTime" class="control-label"></label>
@@ -38,39 +39,39 @@
                 <span asp-validation-for="comentario" class="text-danger"></span>
             </div>
             @*<div class="form-group">
-                <label asp-for="SubTotal" class="control-label"></label>
-                <input asp-for="SubTotal" class="form-control" />
-                <span asp-validation-for="SubTotal" class="text-danger"></span>
-            </div>
+                    <label asp-for="SubTotal" class="control-label"></label>
+                    <input asp-for="SubTotal" class="form-control" />
+                    <span asp-validation-for="SubTotal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Valueimp" class="control-label"></label>
+                    <input asp-for="Valueimp" class="form-control" />
+                    <span asp-validation-for="Valueimp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TotalValue" class="control-label"></label>
+                    <input asp-for="TotalValue" class="form-control" />
+                    <span asp-validation-for="TotalValue" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
-                <label asp-for="Valueimp" class="control-label"></label>
-                <input asp-for="Valueimp" class="form-control" />
-                <span asp-validation-for="Valueimp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalValue" class="control-label"></label>
-                <input asp-for="TotalValue" class="form-control" />
-                <span asp-validation-for="TotalValue" class="text-danger"></span>
-            </div>*@
-        <div class="form-group">
-            <input type="submit" value="Agregar" class="btn btn-primary" />
-            <a class="btn btn-dark" asp-action="Index">Regresar</a>
-            <a class="btn btn-info" asp-controller="Shippings" asp-action="Index">Mesas Disponibles</a>
+                <input type="submit" value="Agregar" class="btn btn-primary" />
+                <a class="btn btn-dark" asp-action="Index">Regresar</a>
+               
 
-            @*@foreach(var f in Model.PurchaseDetails)
-        {
-        <button class="btn btn-info" type="button"
-                data-target="#modal_verificar_mesas" data-toggle="modal"
-                data-backdrop="static" data-keyboard="false"
-                onclick="verificar_mesas">
-        </button>
-        }*@
-        </div>
+                @*@foreach(var f in Model.PurchaseDetails)
+                    {
+                    <button class="btn btn-info" type="button"
+                            data-target="#modal_verificar_mesas" data-toggle="modal"
+                            data-backdrop="static" data-keyboard="false"
+                            onclick="verificar_mesas">
+                    </button>
+                    }*@
+            </div>
         </form>
     </div>
 </div>
 
 <div>
-    
+
 </div>
 

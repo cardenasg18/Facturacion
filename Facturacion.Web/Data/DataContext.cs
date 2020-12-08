@@ -44,5 +44,6 @@ namespace Facturacion.Web.Data
         public DbSet<Facturacion.Web.Models.Login> Login { get; set; }
         public DbSet<Facturacion.Web.Models.Role> Role { get; set; }
         public DbSet<Facturacion.Web.Models.Usuario> Usuarios { get; set; }
+        public DbSet<Facturacion.Web.Models.Reservation> Reservation { get; set; }
     }
 }

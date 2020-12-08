@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Facturacion.Web.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Reservaciones</h2>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Agregar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Clientes
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personas)
+            </th>
+            <th>
+                Mesa
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shipping.ShippWay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                <a class="btn btn-primary" href="/PurchaseOrders/Create">Facturar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.RservationId">Detalles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.RservationId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

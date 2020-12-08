@@ -4,14 +4,16 @@ using Facturacion.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Facturacion.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201208210124_reservaciones")]
+    partial class reservaciones
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -572,11 +574,10 @@ namespace Facturacion.Web.Migrations
 
                     b.Property<int>("CustomerId");
 
-                    b.Property<DateTime>("Hora");
-
                     b.Property<DateTime>("OrderTime");
 
-                    b.Property<int>("Personas");
+                    b.Property<int>("Personas")
+                        .HasMaxLength(4);
 
                     b.Property<int>("ShippingId");
 
@@ -971,7 +972,7 @@ namespace Facturacion.Web.Migrations
 
             modelBuilder.Entity("Facturacion.Web.Models.Reservation", b =>
                 {
-                    b.HasOne("Facturacion.Web.Models.Customer", "Customer")
+                    b.HasOne("Facturacion.Web.Models.Customer")
                         .WithMany("Reservations")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade);
