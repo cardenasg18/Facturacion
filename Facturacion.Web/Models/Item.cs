@@ -66,7 +66,7 @@ namespace Facturacion.Web.Models
         [ForeignKey("SupplierName")]
         public int SupplierId { get; set; }
         public Supplier Supplier { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+       
 
 
     }

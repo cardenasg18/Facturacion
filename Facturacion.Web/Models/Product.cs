@@ -36,6 +36,7 @@ namespace Facturacion.Web.Models
         [DataType(DataType.Currency)]
         public decimal PriceP { get; set; }
 
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
 
     }

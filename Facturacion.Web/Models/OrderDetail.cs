@@ -13,10 +13,10 @@ namespace Facturacion.Web.Models
         public int DetailId { get; set; }
 
         [Required]     
-        [Display(Name = "Artículo")]
-        [ForeignKey("ItemName")]
-        public int ItemId { get; set; }
-        public Item Item { get; set; }
+        [Display(Name = "Producto")]
+        [ForeignKey("ProductName")]
+        public int ProductiD { get; set; }
+        public Product Product { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio.")]
         [Display(Name = "Cantidad")]
