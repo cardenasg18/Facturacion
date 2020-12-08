@@ -18,6 +18,11 @@
                 <span asp-validation-for="SupplierId" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="PaymentId" class="control-label"></label>
+                <select asp-for="PaymentId" class="form-control" asp-items="ViewBag.PaymentId"></select>
+                <span asp-validation-for="PaymentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ShippingId" class="control-label"></label>
                 <select asp-for="ShippingId" class="form-control" asp-items="ViewBag.ShippingId"></select>
                 <span asp-validation-for="ShippingId" class="text-danger"></span>
@@ -33,7 +38,22 @@
                 <span asp-validation-for="comentario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-warning" />
+                <label asp-for="SubTotal" class="control-label"></label>
+                <input asp-for="SubTotal" class="form-control" />
+                <span asp-validation-for="SubTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valueimp" class="control-label"></label>
+                <input asp-for="Valueimp" class="form-control" />
+                <span asp-validation-for="Valueimp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalValue" class="control-label"></label>
+                <input asp-for="TotalValue" class="form-control" />
+                <span asp-validation-for="TotalValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -42,8 +62,4 @@
 <div>
     <a class="btn btn-dark" asp-action="Index">Regresar</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 

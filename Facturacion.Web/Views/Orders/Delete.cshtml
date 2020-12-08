@@ -5,18 +5,19 @@
 }
 
 
-<h1>¿Seguro de que desea eliminar esto?</h1>
+<h3>¿Seguro que desea eliminar esto?</h3>
 <div>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Forma de pago
+            @Html.DisplayNameFor(model => model.Payment)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Payment.Pway)
         </dd>
         <dt>
-            Forma de envío
+            @Html.DisplayNameFor(model => model.Shipping)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Shipping.ShippWay)
@@ -46,22 +47,22 @@
             @Html.DisplayFor(model => model.Valueimp)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.OrderId)
+            @Html.DisplayNameFor(model => model.TotalValue)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.OrderId)
+            @Html.DisplayFor(model => model.TotalValue)
         </dd>
         <dt>
-            Suplidor
+            @Html.DisplayNameFor(model => model.Supplier)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Supplier.SupplierName)
+            @Html.DisplayFor(model => model.Supplier.Mail)
         </dd>
     </dl>
-
+    
     <form asp-action="Delete">
         <input type="hidden" asp-for="OrderId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Delete" class="btn btn-primary" /> |
         <a class="btn btn-dark" asp-action="Index">Regresar</a>
     </form>
 </div>

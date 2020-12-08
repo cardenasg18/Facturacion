@@ -54,12 +54,12 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Shipping)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
 
-            var dataorder = _context.OrderDetail.Include(od => od.Order).Include(od => od.Item).Where(od => od.OrderId.Equals(id)).ToList();
+            var dataorder = _context.OrderDetail.Include(od => od.Order).Include(od => od.Product).Where(od => od.OrderId.Equals(id)).ToList();
             orderview.Details = dataorder;
 
             ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderdetail.OrderId);
             ViewData["PaymentId"] = new SelectList(_context.Order, "PaymentId", "Pway", orderdetail.OrderId);
-            ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "ItemName", orderdetail.ItemId);
+            ViewData["ProductiD"] = new SelectList(_context.Products, "ProductiD", "ProductName", orderdetail.ProductiD);
 
             return View(orderview);
 
@@ -188,19 +188,19 @@ namespace Facturacion.Web.Controllers
             return _context.Order.Any(e => e.OrderId == id);
         }
 
-        public async Task<IActionResult> AdicionarProducto([Bind("DetailId,ItemId,Quantity,UnitPrice,TotalValue,OrderId")] OrderDetail orderDetail)
+        public async Task<IActionResult> AdicionarProducto([Bind("DetailId,ProductiD,Quantity,PriceP,TotalValue,OrderId")] OrderDetail orderDetail)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(orderDetail);
 
                 int id = orderDetail.OrderId;
-                int id_producto = orderDetail.ItemId;
+                int id_producto = orderDetail.ProductiD;
 
-                Models.Item item = _context.Items.Find(id_producto);
-                decimal precio = item.UnitPrice;
-                item.UnitsInStock += Convert.ToInt32(orderDetail.Quantity);
-                _context.Update(item);
+                Models.Product Product = _context.Products.Find(id_producto);
+                decimal precio = Product.PriceP;
+                Product.PriceP += Convert.ToInt32(orderDetail.Quantity);
+                _context.Update(Product);
                 _context.SaveChanges();
 
                 decimal cantidad = Convert.ToDecimal(orderDetail.Quantity);
@@ -227,7 +227,7 @@ namespace Facturacion.Web.Controllers
 
             }
 
-            ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "Comment", orderDetail.ItemId);
+            ViewData["ProductiD"] = new SelectList(_context.Products, "ProductiD", "Comment", orderDetail.ProductiD);
             ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderDetail.OrderId);
             return View(orderDetail);
 
@@ -258,12 +258,12 @@ namespace Facturacion.Web.Controllers
                 .Include(o => o.Shipping)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
 
-            var dataorder = _context.OrderDetail.Include(od => od.Order).Include(od => od.Item).Where(od => od.OrderId.Equals(id)).ToList();
+            var dataorder = _context.OrderDetail.Include(od => od.Order).Include(od => od.Product).Where(od => od.OrderId.Equals(id)).ToList();
             orderview.Details = dataorder;
 
             ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderdetail.OrderId);
             ViewData["PaymentId"] = new SelectList(_context.Order, "PaymentId", "Pway", orderdetail.OrderId);
-            ViewData["ItemId"] = new SelectList(_context.Items, "ItemId", "ItemName", orderdetail.ItemId);
+            ViewData["ProductiD"] = new SelectList(_context.Products, "ProductiD", "ProductName", orderdetail.ProductiD);
 
             return View(orderview);
 
