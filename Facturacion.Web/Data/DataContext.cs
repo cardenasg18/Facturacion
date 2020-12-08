@@ -41,11 +41,8 @@ namespace Facturacion.Web.Data
         public DbSet<Facturacion.Web.Models.PurchaseOrder> PurchaseOrder { get; set; }
         public DbSet<Facturacion.Web.Models.Product> Products { get; set; }
         public DbSet<Facturacion.Web.Models.Chair> Chairs { get; set; }
-        public DbSet<Facturacion.Web.Models.Usuario> Usuarios { get; set; }
-        public DbSet<Facturacion.Web.Models.Role> Role { get; set; }
         public DbSet<Facturacion.Web.Models.Login> Login { get; set; }
-
-
-
+        public DbSet<Facturacion.Web.Models.Role> Role { get; set; }
+        public DbSet<Facturacion.Web.Models.Usuario> Usuarios { get; set; }
     }
 }

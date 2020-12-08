@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<Facturacion.Web.Models.Usuario>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = null;
+    ViewData["Title"] = "Usuarios";
+    Layout = "_Layout_2";
 }
 
     <center>
 
 
 
-        <h2>
-            Usuarios   <a class="btn btn-success" asp-action="Create">Registrarse</a>
-        </h2>
-        <a class="btn btn-primary" asp-controller="Logins" asp-action="Create">Login</a>
+        <h1>Usuarios</h1>
+
+        <a class="btn btn-primary" asp-action="Create">Registrar nuevo usuario</a> ||
+        <a class="btn btn-success" asp-controller="Logins" asp-action="Create">Login</a>
 
         <p>
 
@@ -47,9 +47,9 @@
                             @Html.DisplayFor(modelItem => item.Role.RoleName)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.UserId">Editar</a> |
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.UserId">Detalle</a> |
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.UserId">Eliminar</a>
                         </td>
                     </tr>
                 }

@@ -2,39 +2,41 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "_Layout_2";
 }
 
-<h2>Delete</h2>
+    <center>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Usuario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserMail)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.UserMail)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd>
-            *********
-            @*@Html.DisplayFor(model => model.Password)*@
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Role.RoleName)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="UserId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+        <h3>¿Estas seguro que desea elimnar este usuario?</h3>
+        <div>
+            <hr />
+            @*<dl class="dl-horizontal">*@
+            <dt>
+                @Html.DisplayNameFor(model => model.UserMail)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserMail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+            <dd>
+                *********
+                @*@Html.DisplayFor(model => model.Password)*@
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Role)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Role.RoleName)
+            </dd>
+            @*</dl>*@
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="UserId" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                <a class="btn btn-info" asp-action="Index">Regresar</a>
+            </form>
+        </div>
+
+    </center>
